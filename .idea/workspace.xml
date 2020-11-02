@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1de635d-5aab-4e9b-a33f-c61336db4a92" name="Default Changelist" comment="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password" />
+    <list default="true" id="c1de635d-5aab-4e9b-a33f-c61336db4a92" name="Default Changelist" comment="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604313072298</updated>
-      <workItem from="1604313073347" duration="6801000" />
+      <workItem from="1604313073347" duration="10467000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -162,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604330895734</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
+      <created>1604333027520</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604333027520</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,10 +223,10 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2443" y="134" key="Github.UntrackedFilesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604313316542" />
-    <state x="2232" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604331016728">
+    <state x="2232" y="162" key="Vcs.Push.Dialog.v2" timestamp="1604333036440">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
-    <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604331016728" />
+    <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604333036440" />
     <state x="2296" y="195" key="run.anything.popup" timestamp="1604331742854">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
