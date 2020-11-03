@@ -21,14 +21,14 @@ class AppFixtures extends Fixture
     {
         for ($i = 0; $i < 5; $i++) {
             $sortie = new  Sortie();
-            $sortie->setNom(self::NOM);
-            $sortie->setDateHeureDebut(self::DHD);
-            $sortie->setDuree(self::DUREE);
-            $sortie->setNbInscriptionMax(self::NBMAX);
-            $sortie->setDateLimiteInscription(self::DLIM);
-            $sortie->setInfosSortie(INFO);
-            $sortie->setEtat(self::ETAT);
-            $manager->persist($sortie);
+            $sortie->setNom(self::NOM[$i]);
+            $sortie->setDateHeureDebut(self::DHD[$i]);
+            $sortie->setDuree(self::DUREE[$i]);
+            $sortie->setNbInscriptionMax(self::NBMAX[$i]);
+            $sortie->setDateLimiteInscription(self::DLIM[$i]);
+            $sortie->setInfosSortie(INFO[$i]);
+            $sortie->setEtat(self::ETAT[$i]);
+            $manager->persist($sortie[$i]);
         }
         // $product = new Product();
         // $manager->persist($product);
