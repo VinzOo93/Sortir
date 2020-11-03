@@ -17,7 +17,7 @@
 {% block header %}
 <header>
 
-    {% if is_granted('IS_') %}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
         <img src="{{ asset("image/clipart-sun-logo-7-transparent.png") }}" alt="logo-sun" class="logo-sun" id="logo-sun">
         <h5 class="my-0 mr-md-auto font-weight-normal" id="title-sun" class="title-sun">Sortir.com </h5>
@@ -25,12 +25,11 @@
             <a class="p-2 text-dark" href="#">Ville</a>
             <a class="p-2 text-dark" href="#">Campus</a>
             <a class="p-2 text-dark" href="#">Acceuil</a>
-            {% if app.user %}
             <a class="p-2 text-dark" href="{{ path('app_logout')}}">Déconnexion</a>
-            {% else %}
-            <a class="p-2 text-dark" href="{{ path('app_register')}}">S'inscrire</a>
-            <a class="p-2 text-dark" href="{{ path('app_login')}}">Connexion</a>
-            {% endif %}
+    {% else %}
+        <a class1="p-2 text-dark" href="{{ path('app_register', {'class': 'hidden-row'})}}">S'inscrire</a>
+    {% endif %}
+
         </nav>
     </div>
 

@@ -29,3 +29,7 @@ tr, td {
     font-size: 34px;
 }
 
+.form{
+    display: table-caption;
+}
+

@@ -7,10 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="AD : création de l'entité User / en attente de validation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styleSortie.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styleSortie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +140,6 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -151,6 +149,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -178,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604330895734</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="AD: modification du login et du register.">
+      <created>1604417747999</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604417747999</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +209,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password" />
-    <option name="LAST_COMMIT_MESSAGE" value="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password" />
+    <MESSAGE value="AD: modification du login et du register." />
+    <option name="LAST_COMMIT_MESSAGE" value="AD: modification du login et du register." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2094" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604331555788">
@@ -222,15 +229,19 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2443" y="134" key="Github.UntrackedFilesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604313316542" />
-    <state x="333" y="155" key="Vcs.Push.Dialog.v2" timestamp="1604402412170">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1604421311072">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="333" y="155" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604402412170" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604421311072" />
+    <state x="333" y="155" key="Vcs.Push.Dialog.v2" timestamp="1604417829474">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="333" y="155" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604417829474" />
     <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604331016728" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604337185715">
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604417770284">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604337185715" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604417770284" />
     <state x="2296" y="195" key="run.anything.popup" timestamp="1604331742854">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
