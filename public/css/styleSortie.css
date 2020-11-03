@@ -6,6 +6,20 @@
 body {
     background-color: #d39e002e !important;
 }
+table {
+    display: block;
+    position: relative;
+    right: 35%;
+    left: 35%;
+    background-color: white;
+}
+th {
+    border: solid;
+}
+
+tr, td {
+    border: solid;
+}
 
 .logo-sun {
     height: 65px;

@@ -81,12 +81,12 @@ class Sortie
         return $this;
     }
 
-    public function getDuree(): ?string
+    public function getDuree(): \DateTimeInterface
     {
         return $this->duree;
     }
 
-    public function setDuree(string $duree): self
+    public function setDuree(\DateTimeInterface $duree): self
     {
         $this->duree = $duree;
 
