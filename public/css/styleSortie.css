@@ -1,0 +1,17 @@
+* {
+    font-family: 'Amatic SC', cursive;
+
+}
+
+body {
+    background-color: #d39e002e !important;
+}
+
+.logo-sun {
+    height: 65px;
+}
+
+.title-sun {
+    font-size: 34px;
+}
+
