@@ -28,7 +28,7 @@ class Lieu
     private $rue;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ville"
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ville")
      * @ORM\Column(type="integer")
      */
     private $ville;
