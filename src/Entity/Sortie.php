@@ -48,9 +48,62 @@ class Sortie
     private $infosSortie;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Etat")
      * @ORM\Column(type="integer")
      */
     private $etat;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"} )
+     * @ORM\Column(type="integer")
+     */
+    private $organisateur;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User")
+     * @ORM\Column(type="integer")
+     */
+    private $inscrit;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lieu")
+     * @ORM\Column(type="integer")
+     */
+    private $lieu;
+
+
+    /**
+     * @return mixed
+     */
+    public function getInscrit()
+    {
+        return $this->inscrit;
+    }
+
+    /**
+     * @param mixed $inscrit
+     */
+    public function setInscrit($inscrit): void
+    {
+        $this->inscrit = $inscrit;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrganisateur()
+    {
+        return $this->organisateur;
+    }
+
+    /**
+     * @param mixed $organisateur
+     */
+    public function setOrganisateur($organisateur): void
+    {
+        $this->organisateur = $organisateur;
+    }
+
 
     public function getId(): ?int
     {
