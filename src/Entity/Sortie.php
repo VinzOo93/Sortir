@@ -71,6 +71,22 @@ class Sortie
      */
     private $lieu;
 
+    /**
+     * @return mixed
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param mixed $lieu
+     */
+    public function setLieu($lieu): void
+    {
+        $this->lieu = $lieu;
+    }
+
 
     /**
      * @return mixed
