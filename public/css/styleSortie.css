@@ -29,8 +29,22 @@ tr, td {
     font-size: 34px;
 }
 
-.form{
-    display: table-caption;
+.form-register, .form-login
+{
+    display: inline-grid;
+    position: relative;
+    top: 80px;
+    left: 43%;
+    right: 43%;
+}
+footer
+{
+ text-align: center;
 }
 
+.link-login
+{
+    display: block;
+    text-align: center;
+}
 
