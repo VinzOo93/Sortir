@@ -29,7 +29,8 @@ class Lieu
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Ville")
-     * @ORM\Column(type="integer")
+     * @ORM\JoinColumn(name="ville_id", referencedColumnName="id")
+     *
      */
     private $ville;
 

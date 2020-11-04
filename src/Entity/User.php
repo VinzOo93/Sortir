@@ -56,7 +56,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Campus")
-     * @@ORM\Column (type="string")
+     * @ORM\JoinColumn (name="campus", referencedColumnName="id")
      */
     private $campus;
 

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\SortieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,27 +50,51 @@ class Sortie
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Etat")
-     * @ORM\Column(type="integer")
+     * @ORM\JoinColumn(name="etat_id", referencedColumnName="id")
      */
     private $etat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"} )
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="organisateur", referencedColumnName="id")
      */
     private $organisateur;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User")
-     * @ORM\Column(type="integer")
+     * @ORM\JoinColumn(name="inscrit", referencedColumnName="id")
      */
     private $inscrit;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Lieu")
-     * @ORM\Column(type="integer")
+     * @ORM\JoinColumn(name="lieu_id", referencedColumnName="id")
      */
     private $lieu;
+
+    /**
+     * @ORM\ManyToOne (targetEntity="App\Entity\Campus")
+     * @ORM\JoinColumn(name="campOrganisateur", referencedColumnName="id")
+     *
+     */
+    private $siteOrganisateur;
+
+    /**
+     * Sortie constructor.
+     * @param $inscrit
+     */
+    public function __construct()
+    {
+        $this->inscrit = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSiteOrganisateur()
+    {
+        return $this->siteOrganisateur;
+    }
 
     /**
      * @return mixed
