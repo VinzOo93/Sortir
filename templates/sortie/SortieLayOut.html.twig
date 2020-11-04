@@ -26,8 +26,9 @@
             <a class="p-2 text-dark" href="#">Campus</a>
             <a class="p-2 text-dark" href="#">Acceuil</a>
             <a class="p-2 text-dark" href="{{ path('app_logout')}}">Déconnexion</a>
+
     {% else %}
-        <a class1="p-2 text-dark" href="{{ path('app_register', {'class': 'hidden-row'})}}">S'inscrire</a>
+        <a class="p-2 text-dark" href="{{ path('app_register', {'p-2 text-dark': "hidden-row"})}}">S'inscrire</a>
     {% endif %}
 
         </nav>

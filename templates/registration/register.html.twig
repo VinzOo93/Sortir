@@ -1,4 +1,4 @@
-{% extends 'sortie/SortieLayOut.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}S'inscrire{% endblock %}
 
@@ -15,7 +15,8 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+        <button class="btn btn-dark">S'inscrire</button>
+        {{ form_end(registrationForm) }}
     </form>
-        <button type="button" class="btn btn-dark">S'inscrire</button>
-    {{ form_end(registrationForm) }}
+
 {% endblock %}
