@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Campus;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\AppAuthenticator;
@@ -21,11 +20,13 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, AppAuthenticator $authenticator): Response
     {
         $user = new User();
-        $campus = new Campus();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setNom();
+            $user->setPrenom();
+            $user->setEmail();
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -33,9 +34,12 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
+            $user->setTelephone();
+            $user->setRoles();
+            $user->setCampus();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user,$campus);
+            $entityManager->persist($user);
             $entityManager->flush();
              return $this->redirectToRoute('login',[
                 'last_username' => $user->getUsername()
