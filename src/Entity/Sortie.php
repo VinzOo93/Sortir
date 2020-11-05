@@ -63,6 +63,7 @@ class Sortie
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(name="inscrit", referencedColumnName="id")
+     * @ORM\Column(unique=true, nullable=true)
      */
     private $inscrit;
 
@@ -114,17 +115,17 @@ class Sortie
 
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
-    public function getInscrit()
+    public function getInscrit(): ArrayCollection
     {
         return $this->inscrit;
     }
 
     /**
-     * @param mixed $inscrit
+     * @param ArrayCollection $inscrit
      */
-    public function setInscrit($inscrit): void
+    public function setInscrit(ArrayCollection $inscrit): void
     {
         $this->inscrit = $inscrit;
     }
