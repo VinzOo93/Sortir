@@ -15,7 +15,8 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
+            ->add('nom')
+            ->add('prenom')
             ->add('email')
             ->add('plainPassword', RepeatedType::class, [
                 'mapped' => false,
@@ -24,10 +25,13 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'first_options' => ['label' => 'Mot de passe '],
                 'second_options' => ['label' => 'Répéter le Mot de passe']
-
             ])
-
-        ;
+            ->add('telephone')
+            ->add('roles')
+            ->add('campus', null, [
+                'label' => 'campus',
+                'choice_label' => 'nom',
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
