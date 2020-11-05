@@ -27,7 +27,6 @@ class RegistrationFormType extends AbstractType
                 'second_options' => ['label' => 'Répéter le Mot de passe']
             ])
             ->add('telephone')
-            ->add('roles')
             ->add('campus', null, [
                 'label' => 'campus',
                 'choice_label' => 'nom',
