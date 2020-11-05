@@ -3,7 +3,7 @@
 {% block header %} {{ parent()}}  {%endblock %}
 
 {% block body %}
-
+<body>
     <table class="table table-borderless">
         <thead>
         <tr>
@@ -17,6 +17,7 @@
             <th scope="col">Actions</th>
         </tr>
         </thead>
+
         <tbody>
         {% for sortie in sorties %}
         <tr>
@@ -29,7 +30,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+</body>
 {% endblock %}
 
 {% block footer %} {{ parent() }} {% endblock %}
