@@ -55,7 +55,7 @@ class Sortie
     private $etat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(name="organisateur", referencedColumnName="id")
      */
     private $organisateur;
