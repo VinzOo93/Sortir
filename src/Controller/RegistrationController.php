@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\AppAuthenticator;
@@ -24,9 +25,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setNom();
-            $user->setPrenom();
-            $user->setEmail();
+
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -34,16 +33,11 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            $user->setTelephone();
-            $user->setRoles();
-            $user->setCampus();
+
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-             return $this->redirectToRoute('login',[
-                'last_username' => $user->getUsername()
-             ]);
 
 
             // do anything else you need here, like send an email
