@@ -26,9 +26,7 @@ class UserController extends AbstractController
 
         $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
         $sorties = $sortieRepo -> findAll();
-        return $this->render('sortie/SortieAcceuil.html.twig', ['last_username' => $lastUsername, 'error' => $error], [
-            "sorties" => $sorties
-        ]);
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
 
 
     }
@@ -38,7 +36,6 @@ class UserController extends AbstractController
      */
     public function logout()
     {
-      return  $this->render('security/login.html.twig');
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }
