@@ -4,15 +4,19 @@
 
 {% block body %}
     <body>
+
         {% for flashError in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
+        <div class="form-register" >
         <h1>S'inscrire</h1>
         {{ form_start(registrationForm) }}
+
         <div class="form-group">
             {{ form_widget(registrationForm) }}
         </div>
         <button class="btn btn-dark">S'inscrire</button>
         {{ form_end(registrationForm) }}
+        </div>
     </body>
 {% endblock %}
