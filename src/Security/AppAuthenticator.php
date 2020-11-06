@@ -71,7 +71,7 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator implements Passwor
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+            throw new CustomUserMessageAuthenticationException('L\'e-mail est introuvable');
         }
 
         return $user;
@@ -83,7 +83,7 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator implements Passwor
     }
 
     /**
-     * Used to upgrade (rehash) the user's password automatically over time.
+     * Utilisé pour mettre à jour (rehash) le mot de passe de l'utilisateur automatiquement au fil du temps.
      */
     public function getPassword($credentials): ?string
     {

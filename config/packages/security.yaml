@@ -28,6 +28,12 @@ security:
             logout:
                 path: app_logout
                 target: login
+                # ...
+            remember_me:
+                secret: '%kernel.secret%'
+                name: rememberme
+                lifetime: 31536000
+                path:    /
                 # where to redirect after logout
                 # target: app_any_route
 
