@@ -57,6 +57,7 @@ class Sortie
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(name="organisateur", referencedColumnName="id")
+     * @ORM\Column(unique=true)
      */
     private $organisateur;
 
