@@ -30,7 +30,7 @@ security:
                 target: login
                 # ...
             remember_me:
-                secret: app_secret
+                secret: '%kernel.secret%'
                 name: rememberme
                 lifetime: 31536000
                 path:    /
