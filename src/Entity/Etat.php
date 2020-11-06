@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\EtatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +23,11 @@ class Etat
      */
     private $libelle;
 
+    public function __construct()
+    {
+        $this->etat = new  ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -38,4 +44,11 @@ class Etat
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return (string) $this->etat;
+    }
+
+
 }

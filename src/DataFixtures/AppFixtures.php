@@ -30,7 +30,7 @@ class AppFixtures extends Fixture
     const CAMPUS =['ENI_NANTE', 'ENI_RENNES', 'ENI_NIORT'];
 
     //constante pour l'objet etat
-    const LIBELLE = ['creer', 'ouverte', 'activité en cours','passer', 'Annulé'];
+    const LIBELLE = ['créée', 'ouverte', 'cloturé' , 'activité en cours','passer', 'Annulé'];
 
     // contante pour l'objet Sortie
     const NOM = ['aller à la place', 'aller faire du cheval', 'faire du snow bord', 'boire de bières', 'ceuillir des cerises', 'manger des abricots'];
@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        for ($v =0 ;$v <5; $v ++)
+        for ($v =0 ;$v <6; $v ++)
         {
             $ville = new Ville();
             $ville->setNom(self::VILLE[$v]);
@@ -48,17 +48,17 @@ class AppFixtures extends Fixture
         }
         $manager->flush();
 
-        for ($l = 0 ; $l < 5; $l ++)
+        for ($l = 0 ; $l < 6; $l ++)
         {
             $lieu = new  Lieu();
             $lieu->setNom(self::LIEU[$l]);
             $lieu->setRue(self::RUE[$l]);
-            $lieu->setVille($ville, $l +1);
+            $lieu->setVille($ville, $l);
 
             $manager->persist($lieu);
         }
         $manager->flush();
-        for ($y = 0; $y<4; $y++)
+        for ($y = 0; $y<6; $y++)
         {
             $etat = new  Etat();
             $etat->setLibelle(self::LIBELLE[$y]);
@@ -66,7 +66,7 @@ class AppFixtures extends Fixture
             $manager->persist($etat);
         }
         $manager->flush();
-        for ($c = 0; $c < 2; $c++)
+        for ($c = 0; $c < 3; $c++)
         {
             $campus = new  Campus();
             $campus->setNom(self::CAMPUS[$c]);
@@ -88,7 +88,7 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
         $manager->flush();
-        for ($i = 0; $i < 5; $i++)
+        for ($i = 0; $i < 6; $i++)
         {
             $sortie = new  Sortie();
             $sortie->setNom(self::NOM[$i]);
@@ -98,7 +98,7 @@ class AppFixtures extends Fixture
             $sortie->setDateLimiteInscription(new \DateTime('now'), date_interval_create_from_date_string('+ 90 days'));
             $sortie->setInfosSortie(self::INFOS);
             $sortie->setEtat($etat, mt_rand(0,4));
-            $sortie->setOrganisateur( $i + 1 );
+            $sortie->setOrganisateur( $i  );
             $sortie->setSiteOrganisateur($campus, mt_rand(18 , 19));
 
             $manager->persist($sortie);

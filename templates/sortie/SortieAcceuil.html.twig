@@ -25,7 +25,9 @@
             <td>{{ sortie.dateHeureDebut | date('d-m-Y H:i:s ')}}</td>
             <td>{{ sortie.duree}} en minutes</td>
             <td>{{ sortie.nbInscriptionMax }}</td>
-            <td>{{ sortie.etat }}</td>
+            <td>{{ sortie.etat.libelle }}</td>
+            <td>{{ sortie.inscrit }}</td>
+            <td>{{ sortie.organisateur }}</td>
         </tr>
         {% endfor %}
         </tbody>

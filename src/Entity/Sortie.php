@@ -126,9 +126,9 @@ class Sortie
 
 
     /**
-     * @return ArrayCollection
+     * @param mixes
      */
-    public function getInscrit(): ArrayCollection
+    public function getInscrit()
     {
         return $this->inscrit;
     }

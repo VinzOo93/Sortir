@@ -19,16 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/styleSortie.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styleSortie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Etat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Sortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sortie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604653912686</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
+      <created>1604684526189</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1604684526189</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +309,8 @@
     <MESSAGE value="VO : connection logIn depuis page d'acceuil OK" />
     <MESSAGE value="VO :CODE  Fixture BDD terminé à mettre en BDD &#10;&#10;Template register.html.twig mise à jour" />
     <MESSAGE value="VO:&#10;&#10;Template register.html.twig mise à jour // ajout de bootstrap mise en page refaite" />
-    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;Template register.html.twig mise à jour // ajout de bootstrap mise en page refaite" />
+    <MESSAGE value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement" />
+    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
@@ -326,11 +330,11 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2094" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604331555788" />
-    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1604682020156">
+    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1604685264777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604395490656" />
-    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604682020156" />
+    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685264777" />
     <state x="2458" y="98" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604661259289" />
     <state x="2370" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604586587728">
       <screen x="1920" y="0" width="1440" height="860" />
@@ -349,11 +353,11 @@
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604421311072" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482755039" />
-    <state x="416" y="196" key="Vcs.Push.Dialog.v2" timestamp="1604683094975">
+    <state x="416" y="196" key="Vcs.Push.Dialog.v2" timestamp="1604684575985">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="333" y="155" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604417829474" />
-    <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604683094975" />
+    <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604684575985" />
     <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604653915696" />
     <state x="2469" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604576268250">
       <screen x="1920" y="0" width="1440" height="860" />
@@ -365,10 +369,18 @@
     </state>
     <state x="2030" y="0" width="1117" height="818" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604588473081" />
     <state x="144" y="96" width="1117" height="818" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604651456273" />
-    <state x="1959" y="51" width="1456" height="774" key="dock-window-2" timestamp="1604684344016">
+    <state x="332" y="76" width="1456" height="774" maximized="true" key="dock-window-2" timestamp="1604687472854">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="332" y="76" width="1456" height="774" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604687472854" />
+    <state x="1920" y="0" width="1456" height="846" key="dock-window-3" timestamp="1604685422493">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
-    <state x="1959" y="51" width="1456" height="774" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604684344016" />
+    <state x="1920" y="0" width="1456" height="846" key="dock-window-3/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
+    <state x="1920" y="0" width="1456" height="846" key="dock-window-4" timestamp="1604685422493">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="1920" y="0" width="1456" height="846" key="dock-window-4/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
     <state x="2296" y="195" key="run.anything.popup" timestamp="1604331742854">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
