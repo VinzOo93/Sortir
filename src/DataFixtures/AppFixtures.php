@@ -98,8 +98,8 @@ class AppFixtures extends Fixture
             $sortie->setDateLimiteInscription(new \DateTime('now'), date_interval_create_from_date_string('+ 90 days'));
             $sortie->setInfosSortie(self::INFOS);
             $sortie->setEtat($etat, mt_rand(0,4));
-            $sortie->setOrganisateur($user, mt_rand(1, 11) );
-            $sortie->getSiteOrganisateur($campus, mt_rand(1 , 3));
+            $sortie->setOrganisateur( $i + 1 );
+            $sortie->setSiteOrganisateur($campus, mt_rand(18 , 19));
 
             $manager->persist($sortie);
         }

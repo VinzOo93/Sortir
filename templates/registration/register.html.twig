@@ -3,12 +3,12 @@
 {% block title %}S'inscrire{% endblock %}
 
 {% block body %}
-    <body>
+    <body class="body-register">
 
         {% for flashError in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
-        <div class="form-register form-group" style="top: 10px;width: 200px;">
+        <div class="form-register form-group" style="display: flex; justify-content: center" >
         {{ form_start(registrationForm) }}
         <h1 >S'inscrire</h1>
         {{ form_widget(registrationForm) }}

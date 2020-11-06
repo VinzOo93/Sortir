@@ -99,6 +99,16 @@ class Sortie
     }
 
     /**
+     * @param mixed $siteOrganisateur
+     */
+    public function setSiteOrganisateur($siteOrganisateur): void
+    {
+        $this->siteOrganisateur = $siteOrganisateur;
+    }
+
+
+
+    /**
      * @return mixed
      */
     public function getLieu()

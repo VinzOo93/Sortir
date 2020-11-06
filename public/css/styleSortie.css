@@ -29,10 +29,17 @@ tr, td {
     font-size: 34px;
 }
 
-.form-register {
-    display: flex;
-    justify-content: center;
+.body-register  {
+    display: flex !important;
+    justify-content: center !important;
 }
+.form-group {
+    top: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+
 
 .form-login
 {
