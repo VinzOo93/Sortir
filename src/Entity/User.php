@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  *
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="L'email est déjà utilisé")
  */
 class User implements UserInterface
 {
@@ -60,24 +60,31 @@ class User implements UserInterface
      */
     private $campus;
 
+    public function __construct()
+    {
+        $this->user =new User;
+    }
+
     /**
-     * @return mixed
+     * @return Campus
      */
-    public function getCampus()
+    public function getCampus(): ?Campus
     {
         return $this->campus;
     }
 
     /**
-     * @param mixed $campus
+     * @param Campus $campus
      */
-    public function setCampus($campus): void
+    public function setCampus(Campus $campus): self
     {
         $this->campus = $campus;
+
+        return $this;
     }
 
     /**
-     *
+     * @return mixed
      */
     public function getId(): ?int
     {
@@ -107,6 +114,8 @@ class User implements UserInterface
     {
         return $this->prenom;
     }
+
+
 
     /**
      * @param mixed $prenom
@@ -201,6 +210,19 @@ class User implements UserInterface
 
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
     }
+
+    /**
+     * toString
+     * @return $this
+     */
+    public function __toString()
+    {
+       return (string) $this->user;
+
+    }
+
+
+
+
 }

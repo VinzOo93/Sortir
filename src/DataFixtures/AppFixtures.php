@@ -10,7 +10,7 @@ use App\Entity\User;
 use App\Entity\Ville;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use phpDocumentor\Reflection\Types\Integer;
+
 
 
 class AppFixtures extends Fixture
@@ -46,6 +46,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($ville);
         }
+        $manager->flush();
 
         for ($l = 0 ; $l < 5; $l ++)
         {
@@ -56,7 +57,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($lieu);
         }
-
+        $manager->flush();
         for ($y = 0; $y<4; $y++)
         {
             $etat = new  Etat();
@@ -64,7 +65,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($etat);
         }
-
+        $manager->flush();
         for ($c = 0; $c < 2; $c++)
         {
             $campus = new  Campus();
@@ -72,7 +73,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($campus);
         }
-
+        $manager->flush();
         for ($u = 0 ; $u <10 ; $u ++)
         {
             $user = new User();
@@ -82,11 +83,11 @@ class AppFixtures extends Fixture
             $user->setEmail('momo'.$u.'@live.fr');
             $user->setRoles(['ROLE_USER']);
             $user->setPassword('momo'.$u);
-            $user->setCampus($campus ,mt_rand(1 ,3));
+            $user->setCampus($campus, (mt_rand(1,3)));
 
             $manager->persist($user);
         }
-
+        $manager->flush();
         for ($i = 0; $i < 5; $i++)
         {
             $sortie = new  Sortie();
@@ -97,7 +98,7 @@ class AppFixtures extends Fixture
             $sortie->setDateLimiteInscription(new \DateTime('now'), date_interval_create_from_date_string('+ 90 days'));
             $sortie->setInfosSortie(self::INFOS);
             $sortie->setEtat($etat, mt_rand(0,4));
-            $sortie->setOrganisateur(new User, mt_rand(1, 11) );
+            $sortie->setOrganisateur($user, mt_rand(1, 11) );
             $sortie->getSiteOrganisateur($campus, mt_rand(1 , 3));
 
             $manager->persist($sortie);
