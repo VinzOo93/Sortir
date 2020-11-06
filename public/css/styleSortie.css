@@ -29,7 +29,12 @@ tr, td {
     font-size: 34px;
 }
 
-.form-register, .form-login
+.form-register {
+    display: flex;
+    justify-content: center;
+}
+
+.form-login
 {
     display: inline-grid;
     position: relative;
