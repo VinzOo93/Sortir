@@ -5,12 +5,14 @@
 
 body {
     background-color: #d39e002e !important;
+
+}
+.table-wrapper {
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
 }
 table {
-    display: block;
-    position: relative;
-    right: 35%;
-    left: 35%;
     background-color: white;
 }
 th {
@@ -33,6 +35,7 @@ tr, td {
     display: flex !important;
     justify-content: center !important;
 }
+
 .form-group {
     top: 10px;
     width: 200px;

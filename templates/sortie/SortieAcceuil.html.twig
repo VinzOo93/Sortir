@@ -3,7 +3,8 @@
 {% block header %} {{ parent()}}  {%endblock %}
 
 {% block body %}
-<body>
+<body class="body-acceuil">
+<div class="table-wrapper">
     <table class="table table-borderless">
         <thead>
         <tr>
@@ -26,12 +27,20 @@
             <td>{{ sortie.duree}} en minutes</td>
             <td>{{ sortie.nbInscriptionMax }}</td>
             <td>{{ sortie.etat.libelle }}</td>
-            <td>{{ sortie.inscrit }}</td>
+            <td>{{ sortie.inscrit | length }}</td>
             <td>{{ sortie.organisateur }}</td>
+            <td>
+                <a href="#">Afficher</a>
+                <a href="#">Se désister</a>
+                <a href="#">Modifier</a>
+                <a href="#">Publier</a>
+                <a href="#">Annuelle</a>
+            </td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
 </body>
 {% endblock %}
 
