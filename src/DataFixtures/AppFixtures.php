@@ -33,7 +33,7 @@ class AppFixtures extends Fixture
     const LIBELLE = ['créée', 'ouverte', 'cloturé' , 'activité en cours','passer', 'Annulé'];
 
     // contante pour l'objet Sortie
-    const NOM = ['aller à la place', 'aller faire du cheval', 'faire du snow bord', 'boire de bières', 'ceuillir des cerises', 'manger des abricots'];
+    const NOM = ['aller à la place', 'aller faire du cheval', 'faire du snow bord', 'boire des bières', 'ceuillir des cerises', 'manger des abricots'];
     const INFOS ='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend, libero in ullamcorper blandit, eros magna commodo ligula, eu fermentum eros urna posuere leo. Mauris semper purus et purus faucibus.';
 
     public function load(ObjectManager $manager)
@@ -95,7 +95,7 @@ class AppFixtures extends Fixture
             $sortie->setDateHeureDebut(new \DateTime('now'), date_interval_create_from_date_string('+ 61 days'));
             $sortie->setDuree(mt_rand(1, 500));
             $sortie->setNbInscriptionMax(mt_rand(1, 15));
-            $sortie->setDateLimiteInscription(new \DateTime('now'), date_interval_create_from_date_string('+ 90 days'));
+            $sortie->setDateLimiteInscription(new \DateTime('2020-12-15'), date_interval_create_from_date_string('+ 90 days'));
             $sortie->setInfosSortie(self::INFOS);
             $sortie->setEtat($etat, mt_rand(0,4));
             $sortie->setOrganisateur( $i  );
