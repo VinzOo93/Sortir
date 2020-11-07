@@ -17,7 +17,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: lazy
+            anonymous: true
             provider: app_user_provider
             guard:
                 authenticators:
@@ -25,17 +25,17 @@ security:
             form_login:
                 login_path: login
                 check_path: login
+                require_previous_session: false
             logout:
                 path: app_logout
                 target: login
-                # ...
             remember_me:
-                secret: '%kernel.secret%'
+                secret: "%kernel.secret%"
                 name: rememberme
                 lifetime: 31536000
-                path:    /
+                path: /
                 # where to redirect after logout
-                # target: app_any_route
+                # target: login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

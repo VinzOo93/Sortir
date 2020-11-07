@@ -1,0 +1,350 @@
+Index: templates/security/login.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'base.html.twig' %}\r\n\r\n{% block title %}Connexion{% endblock %}\r\n\r\n\r\n\r\n{% block body %}\r\n    <body>\r\n    <h5><a class=\"p-2 text-dark link-login\" href=\"{{ path('app_register') }}\">S'inscrire</a></h5>\r\n\r\n    <form class=\"form-login\" method=\"post\">\r\n        {% if error is defined %}\r\n            {% if error %}\r\n                <div class=\"alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>\r\n            {% endif %}\r\n        {% endif %}\r\n\r\n\r\n        {% if app.user %}\r\n            <div class=\"mb-3\">\r\n                You are logged in as {{ app.user.username }}, <a href=\"{{ path('app_logout') }}\">Logout</a>\r\n            </div>\r\n        {% endif %}\r\n\r\n        <h1 class=\"h3 mb-3 font-weight-normal\">Connectez-vous</h1>\r\n        <label for=\"inputEmail\">Email</label>\r\n        <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" required\r\n               autofocus>\r\n        <label for=\"inputPassword\">Password</label>\r\n        <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" required>\r\n\r\n        <input type=\"hidden\" name=\"_csrf_token\"\r\n               value=\"{{ csrf_token('authenticate') }}\">\r\n\r\n        <div class=\"checkbox mb-3\">\r\n            <label>\r\n                <input type=\"checkbox\" name=\"_remember_me\"> Se souvenir de moi\r\n            </label>\r\n\r\n            <a class=\"p-2 text-dark\" href=\"#\">Mot de passe oublié</a>\r\n\r\n        </div>\r\n        <button class=\"btn btn-lg btn-primary\" type=\"submit\">\r\n            Connexion\r\n        </button>\r\n    </form>\r\n    </body>\r\n{% endblock %}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/security/login.html.twig	(revision 6b8a4301168af1120585b02f113302a26e6035c4)
++++ templates/security/login.html.twig	(date 1604760137918)
+@@ -33,8 +33,8 @@
+                value="{{ csrf_token('authenticate') }}">
+ 
+         <div class="checkbox mb-3">
+-            <label>
+-                <input type="checkbox" name="_remember_me"> Se souvenir de moi
++            <label for="remember_me">
++                <input type="checkbox" id="remember_me" name="_remember_me"> Se souvenir de moi
+             </label>
+ 
+             <a class="p-2 text-dark" href="#">Mot de passe oublié</a>
+Index: src/Controller/UserController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Controller;\r\n\r\nuse App\\Entity\\Sortie;\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Response;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\nuse Symfony\\Component\\Security\\Http\\Authentication\\AuthenticationUtils;\r\n\r\nclass UserController extends AbstractController\r\n{\r\n    /**\r\n     * @Route(\"/login\", name=\"login\")\r\n     */\r\n    public function login(AuthenticationUtils $authenticationUtils): Response\r\n    {\r\n        // if ($this->getUser()) {\r\n        //     return $this->redirectToRoute('target_path');\r\n        // }\r\n\r\n        // get the login error if there is one\r\n        $error = $authenticationUtils->getLastAuthenticationError();\r\n        // last username entered by the user\r\n        $lastUsername = $authenticationUtils->getLastUsername();\r\n\r\n        $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);\r\n        $sorties = $sortieRepo -> findAll();\r\n        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);\r\n\r\n\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/logout\", name=\"app_logout\")\r\n     */\r\n    public function logout()\r\n    {\r\n        throw new \\LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controller/UserController.php	(revision 6b8a4301168af1120585b02f113302a26e6035c4)
++++ src/Controller/UserController.php	(date 1604759901903)
+@@ -18,7 +18,6 @@
+         // if ($this->getUser()) {
+         //     return $this->redirectToRoute('target_path');
+         // }
+-
+         // get the login error if there is one
+         $error = $authenticationUtils->getLastAuthenticationError();
+         // last username entered by the user
+@@ -28,7 +27,6 @@
+         $sorties = $sortieRepo -> findAll();
+         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+ 
+-
+     }
+ 
+     /**
+@@ -38,4 +36,6 @@
+     {
+         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+     }
++
++
+ }
+Index: src/Entity/User.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Entity;\r\n\r\nuse App\\Repository\\UserRepository;\r\nuse Doctrine\\Common\\Collections\\ArrayCollection;\r\nuse Doctrine\\ORM\\Mapping as ORM;\r\nuse Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;\r\nuse Symfony\\Component\\Security\\Core\\User\\UserInterface;\r\n\r\n/**\r\n *\r\n * @ORM\\Entity(repositoryClass=UserRepository::class)\r\n * @UniqueEntity(fields={\"email\"}, message=\"L'email est déjà utilisé\")\r\n */\r\nclass User implements UserInterface\r\n{\r\n    /**\r\n     * @ORM\\Id\r\n     * @ORM\\GeneratedValue\r\n     * @ORM\\Column(type=\"integer\")\r\n     */\r\n    private $id;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\",length=255)\r\n     */\r\n    private $nom;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\",length=255)\r\n     */\r\n    private $prenom;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\",length=10)\r\n     */\r\n    private $telephone;\r\n\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=180, unique=true)\r\n     */\r\n    private $email;\r\n\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"array\")\r\n     */\r\n    private $roles = [];\r\n\r\n    /**\r\n     * @var string The hashed password\r\n     * @ORM\\Column(type=\"string\")\r\n     */\r\n    private $password;\r\n\r\n    /**\r\n     * @ORM\\ManyToOne(targetEntity=\"App\\Entity\\Campus\")\r\n     * @ORM\\JoinColumn (name=\"campus\", referencedColumnName=\"id\")\r\n     */\r\n    private $campus;\r\n\r\n    public function __construct()\r\n    {\r\n        $this->user =new ArrayCollection();\r\n    }\r\n\r\n    /**\r\n     * @return Campus\r\n     */\r\n    public function getCampus(): ?Campus\r\n    {\r\n        return $this->campus;\r\n    }\r\n\r\n    /**\r\n     * @param Campus $campus\r\n     */\r\n    public function setCampus(Campus $campus): self\r\n    {\r\n        $this->campus = $campus;\r\n\r\n        return $this;\r\n    }\r\n\r\n    /**\r\n     * @return mixed\r\n     */\r\n    public function getId(): ?int\r\n    {\r\n        return $this->id;\r\n    }\r\n\r\n    /**\r\n     * @return mixed\r\n     */\r\n    public function getNom()\r\n    {\r\n        return $this->nom;\r\n    }\r\n\r\n    /**\r\n     * @param mixed $nom\r\n     */\r\n    public function setNom($nom): void\r\n    {\r\n        $this->nom = $nom;\r\n    }\r\n\r\n    /**\r\n     * @return mixed\r\n     */\r\n    public function getPrenom()\r\n    {\r\n        return $this->prenom;\r\n    }\r\n\r\n\r\n\r\n    /**\r\n     * @param mixed $prenom\r\n     */\r\n    public function setPrenom($prenom): void\r\n    {\r\n        $this->prenom = $prenom;\r\n    }\r\n\r\n    /**\r\n     * @return mixed\r\n     */\r\n    public function getTelephone()\r\n    {\r\n        return $this->telephone;\r\n    }\r\n\r\n    /**\r\n     * @param mixed $telephone\r\n     */\r\n    public function setTelephone($telephone): void\r\n    {\r\n        $this->telephone = $telephone;\r\n    }\r\n\r\n\r\n\r\n    public function getEmail(): ?string\r\n    {\r\n        return $this->email;\r\n    }\r\n\r\n    public function setEmail(string $email): self\r\n    {\r\n        $this->email = $email;\r\n\r\n        return $this;\r\n    }\r\n\r\n\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function getRoles(): array\r\n    {\r\n        $roles = $this->roles;\r\n        // guarantee every user at least has ROLE_USER\r\n        $roles[] = 'ROLE_USER';\r\n\r\n        return array_unique($roles);\r\n    }\r\n\r\n    public function setRoles(array $roles): self\r\n    {\r\n        $this->roles = $roles;\r\n\r\n        return $this;\r\n    }\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function getPassword(): string\r\n    {\r\n        return (string) $this->password;\r\n    }\r\n\r\n    public function setPassword(string $password): self\r\n    {\r\n        $this->password = $password;\r\n\r\n        return $this;\r\n    }\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function getSalt()\r\n    {\r\n        // not needed when using the \"bcrypt\" algorithm in security.yaml\r\n    }\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function eraseCredentials()\r\n    {\r\n        // If you store any temporary, sensitive data on the user, clear it here\r\n        // $this->plainPassword = null;\r\n    }\r\n\r\n    public function getUsername()\r\n    {\r\n    }\r\n\r\n    /**\r\n     * toString\r\n     * @return $this\r\n     */\r\n    public function __toString()\r\n    {\r\n       return (string) $this->user;\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Entity/User.php	(revision 6b8a4301168af1120585b02f113302a26e6035c4)
++++ src/Entity/User.php	(date 1604763464685)
+@@ -211,6 +211,7 @@
+ 
+     public function getUsername()
+     {
++        return $this->email;
+     }
+ 
+     /**
+Index: config/packages/security.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>twig:\r\n    form_themes: ['bootstrap_4_layout.html.twig']\r\nsecurity:\r\n    encoders:\r\n        App\\Entity\\User:\r\n            algorithm: auto\r\n\r\n    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers\r\n    providers:\r\n        # used to reload user from session & other features (e.g. switch_user)\r\n        app_user_provider:\r\n            entity:\r\n                class: App\\Entity\\User\r\n                property: email\r\n    firewalls:\r\n        dev:\r\n            pattern: ^/(_(profiler|wdt)|css|images|js)/\r\n            security: false\r\n        main:\r\n            anonymous: lazy\r\n            provider: app_user_provider\r\n            guard:\r\n                authenticators:\r\n                    - App\\Security\\AppAuthenticator\r\n            form_login:\r\n                login_path: login\r\n                check_path: login\r\n            logout:\r\n                path: app_logout\r\n                target: login\r\n                # ...\r\n            remember_me:\r\n                secret: '%kernel.secret%'\r\n                name: rememberme\r\n                lifetime: 31536000\r\n                path:    /\r\n                # where to redirect after logout\r\n                # target: app_any_route\r\n\r\n            # activate different ways to authenticate\r\n            # https://symfony.com/doc/current/security.html#firewalls-authentication\r\n\r\n            # https://symfony.com/doc/current/security/impersonating_user.html\r\n            # switch_user: true\r\n\r\n    # Easy way to control access for large sections of your site\r\n    # Note: Only the *first* access control that matches will be used\r\n    access_control:\r\n        # - { path: ^/admin, roles: ROLE_ADMIN }\r\n         - { path: ^/profile, roles: ROLE_USER }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- config/packages/security.yaml	(revision 6b8a4301168af1120585b02f113302a26e6035c4)
++++ config/packages/security.yaml	(date 1604757925551)
+@@ -17,25 +17,27 @@
+             pattern: ^/(_(profiler|wdt)|css|images|js)/
+             security: false
+         main:
+-            anonymous: lazy
++            anonymous: true
+             provider: app_user_provider
+             guard:
+                 authenticators:
+                     - App\Security\AppAuthenticator
++
+             form_login:
+                 login_path: login
+                 check_path: login
++                require_previous_session: false
+             logout:
+                 path: app_logout
+                 target: login
+-                # ...
+             remember_me:
+-                secret: '%kernel.secret%'
++                secret: "%kernel.secret%"
+                 name: rememberme
+                 lifetime: 31536000
+-                path:    /
++                path: /
++
+                 # where to redirect after logout
+-                # target: app_any_route
++                # target: login
+ 
+             # activate different ways to authenticate
+             # https://symfony.com/doc/current/security.html#firewalls-authentication
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"6b459d41-34b0-44d4-9304-af4dca168cd5\" name=\"Default Changelist\" comment=\"VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/DataFixtures/AppFixtures.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/DataFixtures/AppFixtures.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Entity/Etat.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Entity/Etat.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Entity/Sortie.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Entity/Sortie.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webimpress/safe-writer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ocramius/proxy-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/apache-pack\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/data-fixtures\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1jjMVflLOJHbnIEqXktFVovofEN\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"php.override.implement.member.chooser.php.doc\" value=\"NONE\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.webide.settings.project.settings.php\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"6b459d41-34b0-44d4-9304-af4dca168cd5\" name=\"Default Changelist\" comment=\"AD : création de l'entité User / en attente de validation.\" />\r\n      <created>1604313072298</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1604313072298</updated>\r\n      <workItem from=\"1604313073347\" duration=\"6801000\" />\r\n      <workItem from=\"1604393599992\" duration=\"4838000\" />\r\n      <workItem from=\"1604482225905\" duration=\"2142000\" />\r\n      <workItem from=\"1604484424373\" duration=\"3438000\" />\r\n      <workItem from=\"1604568524484\" duration=\"5061000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password\">\r\n      <created>1604330755297</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604330755297</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password\">\r\n      <created>1604330895734</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604330895734</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"AD: modification du login et du register.\">\r\n      <created>1604417747999</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604417747999</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"VO: Fixture devrait marcher mais bug de l'espace mémoire de PHP\">\r\n      <created>1604427605504</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604427605504</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"VO: Table et relations faites à tester et vérifier dans my admin\">\r\n      <created>1604508793024</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604508793024</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"VO: Table et relations faites à tester et vérifier dans my admin\">\r\n      <created>1604508991122</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604508991122</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"VO: Entité et relations terminé à montrer à Thierry en attente Antoine pour Login et Password\">\r\n      <created>1604514072758</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604514072758</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"VO : tentative de connection login fail à verifier\">\r\n      <created>1604586862976</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604586862976</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"VO : Thierry a validé les Entity BDD OK, Log à vérifier et tester\">\r\n      <created>1604588255389</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604588255389</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"VO : connection logIn depuis page d'acceuil OK\">\r\n      <created>1604589734441</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604589734441</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"VO :CODE  Fixture BDD terminé à mettre en BDD &#10;&#10;Template register.html.twig mise à jour\">\r\n      <created>1604605910611</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604605910611</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"VO:&#10;&#10;Template register.html.twig mise à jour // ajout de bootstrap mise en page refaite\">\r\n      <created>1604653912686</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604653912686</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement\">\r\n      <created>1604684526189</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1604684526189</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"1\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password\" />\r\n    <MESSAGE value=\"AD: modification du login et du register.\" />\r\n    <MESSAGE value=\"VO: Ajout de la fonctionalité fixture debut du test\" />\r\n    <MESSAGE value=\"VO: Fixture devrait marcher mais bug de l'espace mémoire de PHP\" />\r\n    <MESSAGE value=\"VO: Table et relations faites à tester et vérifier dans my admin\" />\r\n    <MESSAGE value=\"VO: Entité et relations terminé à montrer à Thierry en attente Antoine pour Login et Password\" />\r\n    <MESSAGE value=\"VO : Modification register\" />\r\n    <MESSAGE value=\"VO : tentative de connection login fail à verifier\" />\r\n    <MESSAGE value=\"VO : Thierry a validé les Entity BDD OK, Log à vérifier et tester\" />\r\n    <MESSAGE value=\"VO : connection logIn depuis page d'acceuil OK\" />\r\n    <MESSAGE value=\"VO :CODE  Fixture BDD terminé à mettre en BDD &#10;&#10;Template register.html.twig mise à jour\" />\r\n    <MESSAGE value=\"VO:&#10;&#10;Template register.html.twig mise à jour // ajout de bootstrap mise en page refaite\" />\r\n    <MESSAGE value=\"VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"425\" y=\"82\" key=\"#CLI_Interpreters\" timestamp=\"1604482641852\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"425\" y=\"82\" key=\"#CLI_Interpreters/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604482641852\" />\r\n    <state x=\"2266\" y=\"108\" key=\"#Inspections\" timestamp=\"1604658892828\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"2266\" y=\"108\" key=\"#Inspections/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604658892828\" />\r\n    <state x=\"2453\" y=\"284\" key=\"#Notifications\" timestamp=\"1604657620145\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"711\" y=\"343\" key=\"#Notifications/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604482192153\" />\r\n    <state x=\"2453\" y=\"284\" key=\"#Notifications/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604657620145\" />\r\n    <state x=\"2094\" y=\"84\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1604331555788\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"2094\" y=\"84\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604331555788\" />\r\n    <state x=\"717\" y=\"119\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1604685264777\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"574\" y=\"94\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824\" timestamp=\"1604395490656\" />\r\n    <state x=\"717\" y=\"119\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604685264777\" />\r\n    <state x=\"2458\" y=\"98\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604661259289\" />\r\n    <state x=\"2370\" y=\"184\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog\" timestamp=\"1604586587728\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"2370\" y=\"184\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604586587728\" />\r\n    <state x=\"2518\" y=\"327\" key=\"Github.ShareDialog\" timestamp=\"1604313161984\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"2518\" y=\"327\" key=\"Github.ShareDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604313161984\" />\r\n    <state x=\"2443\" y=\"134\" key=\"Github.UntrackedFilesDialog\" timestamp=\"1604313316542\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"2443\" y=\"134\" key=\"Github.UntrackedFilesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604313316542\" />\r\n    <state x=\"346\" y=\"72\" key=\"SettingsEditor\" timestamp=\"1604482755039\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"277\" y=\"57\" key=\"SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824\" timestamp=\"1604421311072\" />\r\n    <state x=\"346\" y=\"72\" key=\"SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604482755039\" />\r\n    <state x=\"416\" y=\"196\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1604684575985\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"333\" y=\"155\" key=\"Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824\" timestamp=\"1604417829474\" />\r\n    <state x=\"416\" y=\"196\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604684575985\" />\r\n    <state x=\"2232\" y=\"162\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604653915696\" />\r\n    <state x=\"2469\" y=\"340\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1604576268250\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"586\" y=\"326\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824\" timestamp=\"1604417770284\" />\r\n    <state x=\"2469\" y=\"340\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604576268250\" />\r\n    <state x=\"144\" y=\"96\" width=\"1117\" height=\"818\" maximized=\"true\" key=\"dock-window-1\" timestamp=\"1604651456273\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2030\" y=\"0\" width=\"1117\" height=\"818\" key=\"dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604588473081\" />\r\n    <state x=\"144\" y=\"96\" width=\"1117\" height=\"818\" maximized=\"true\" key=\"dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604651456273\" />\r\n    <state x=\"332\" y=\"76\" width=\"1456\" height=\"774\" maximized=\"true\" key=\"dock-window-2\" timestamp=\"1604687472854\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"332\" y=\"76\" width=\"1456\" height=\"774\" maximized=\"true\" key=\"dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604687472854\" />\r\n    <state x=\"1920\" y=\"0\" width=\"1456\" height=\"846\" key=\"dock-window-3\" timestamp=\"1604685422493\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"1920\" y=\"0\" width=\"1456\" height=\"846\" key=\"dock-window-3/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604685422493\" />\r\n    <state x=\"1920\" y=\"0\" width=\"1456\" height=\"846\" key=\"dock-window-4\" timestamp=\"1604685422493\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"1920\" y=\"0\" width=\"1456\" height=\"846\" key=\"dock-window-4/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040\" timestamp=\"1604685422493\" />\r\n    <state x=\"2296\" y=\"195\" key=\"run.anything.popup\" timestamp=\"1604331742854\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"2296\" y=\"195\" key=\"run.anything.popup/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604331742854\" />\r\n    <state x=\"2470\" y=\"220\" key=\"svn.repositoryBrowser\" timestamp=\"1604313122772\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1440\" height=\"860\" />\r\n    </state>\r\n    <state x=\"2470\" y=\"220\" key=\"svn.repositoryBrowser/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860\" timestamp=\"1604313122772\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 6b8a4301168af1120585b02f113302a26e6035c4)
++++ .idea/workspace.xml	(date 1604763465098)
+@@ -1,30 +1,35 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="BranchesTreeState">
+-    <expand>
+-      <path>
+-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-      </path>
+-      <path>
+-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-      </path>
+-      <path>
+-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+-      </path>
+-    </expand>
++    <expand />
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
++    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO :CODE  Fixture BDD terminé à mettre en BDD &#10;&#10;Template register.html.twig mise à jour">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_17_04__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_17_04__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_18_14__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_18_14__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_19__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_19__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_20__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_20__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_16_37__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_16_37__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_14_01__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_14_01__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_46__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_46__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_53__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_53__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Entity/Etat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etat.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Entity/Sortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sortie.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -157,6 +162,7 @@
+     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller" />
+     <property name="node.js.detected.package.eslint" value="true" />
+     <property name="node.js.detected.package.tslint" value="true" />
+     <property name="node.js.path.for.package.eslint" value="project" />
+@@ -167,6 +173,11 @@
+     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+     <property name="vue.rearranger.settings.migration" value="true" />
++  </component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\wamp64\www\Sortir\src\Controller" />
++    </key>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -259,21 +270,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1604605910611</updated>
+     </task>
+-    <task id="LOCAL-00012" summary="VO:&#10;&#10;Template register.html.twig mise à jour // ajout de bootstrap mise en page refaite">
+-      <created>1604653912686</created>
+-      <option name="number" value="00012" />
+-      <option name="presentableId" value="LOCAL-00012" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1604653912686</updated>
+-    </task>
+-    <task id="LOCAL-00013" summary="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
+-      <created>1604684526189</created>
+-      <option name="number" value="00013" />
+-      <option name="presentableId" value="LOCAL-00013" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1604684526189</updated>
+-    </task>
+-    <option name="localTasksCounter" value="14" />
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -308,34 +305,28 @@
+     <MESSAGE value="VO : Thierry a validé les Entity BDD OK, Log à vérifier et tester" />
+     <MESSAGE value="VO : connection logIn depuis page d'acceuil OK" />
+     <MESSAGE value="VO :CODE  Fixture BDD terminé à mettre en BDD &#10;&#10;Template register.html.twig mise à jour" />
+-    <MESSAGE value="VO:&#10;&#10;Template register.html.twig mise à jour // ajout de bootstrap mise en page refaite" />
+-    <MESSAGE value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement" />
+-    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement" />
++    <MESSAGE value="AD: modification de message login et register ainsi que des modification de la checkbox est en cours" />
++    <option name="LAST_COMMIT_MESSAGE" value="AD: modification de message login et register ainsi que des modification de la checkbox est en cours" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="425" y="82" key="#CLI_Interpreters/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482641852" />
+-    <state x="2266" y="108" key="#Inspections" timestamp="1604658892828">
+-      <screen x="1920" y="0" width="1440" height="860" />
+-    </state>
+-    <state x="2266" y="108" key="#Inspections/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604658892828" />
+-    <state x="2453" y="284" key="#Notifications" timestamp="1604657620145">
+-      <screen x="1920" y="0" width="1440" height="860" />
++    <state x="711" y="343" key="#Notifications" timestamp="1604482192153">
++      <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="711" y="343" key="#Notifications/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482192153" />
+-    <state x="2453" y="284" key="#Notifications/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604657620145" />
+     <state x="2094" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604331555788">
+       <screen x="1920" y="0" width="1440" height="860" />
+     </state>
+     <state x="2094" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604331555788" />
+-    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1604685264777">
++    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1604512007201">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604395490656" />
+-    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685264777" />
+-    <state x="2458" y="98" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604661259289" />
++    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604512007201" />
++    <state x="2458" y="98" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604508610479" />
+     <state x="2370" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604586587728">
+       <screen x="1920" y="0" width="1440" height="860" />
+     </state>
+@@ -348,17 +339,25 @@
+       <screen x="1920" y="0" width="1440" height="860" />
+     </state>
+     <state x="2443" y="134" key="Github.UntrackedFilesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604313316542" />
++    <state x="576" y="135" key="NewPhpClassDialog" timestamp="1604759746224">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="576" y="135" key="NewPhpClassDialog/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604759746224" />
++    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1604759770260">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604759770260" />
+     <state x="346" y="72" key="SettingsEditor" timestamp="1604482755039">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604421311072" />
+     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482755039" />
+-    <state x="416" y="196" key="Vcs.Push.Dialog.v2" timestamp="1604684575985">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state x="333" y="155" key="Vcs.Push.Dialog.v2" timestamp="1604666108832">
++      <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state x="333" y="155" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604417829474" />
+-    <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604684575985" />
+-    <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604653915696" />
++    <state x="333" y="155" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604666108832" />
++    <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604514095178" />
++    <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604605922602" />
+     <state x="2469" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604576268250">
+       <screen x="1920" y="0" width="1440" height="860" />
+     </state>
+@@ -369,18 +368,6 @@
+     </state>
+     <state x="2030" y="0" width="1117" height="818" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604588473081" />
+     <state x="144" y="96" width="1117" height="818" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604651456273" />
+-    <state x="332" y="76" width="1456" height="774" maximized="true" key="dock-window-2" timestamp="1604687472854">
+-      <screen x="0" y="0" width="1920" height="1040" />
+-    </state>
+-    <state x="332" y="76" width="1456" height="774" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604687472854" />
+-    <state x="1920" y="0" width="1456" height="846" key="dock-window-3" timestamp="1604685422493">
+-      <screen x="1920" y="0" width="1440" height="860" />
+-    </state>
+-    <state x="1920" y="0" width="1456" height="846" key="dock-window-3/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
+-    <state x="1920" y="0" width="1456" height="846" key="dock-window-4" timestamp="1604685422493">
+-      <screen x="1920" y="0" width="1440" height="860" />
+-    </state>
+-    <state x="1920" y="0" width="1456" height="846" key="dock-window-4/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
+     <state x="2296" y="195" key="run.anything.popup" timestamp="1604331742854">
+       <screen x="1920" y="0" width="1440" height="860" />
+     </state>
+Index: config/packages/framework.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># see https://symfony.com/doc/current/reference/configuration/framework.html\r\nframework:\r\n    secret: '%env(APP_SECRET)%'\r\n    #csrf_protection: true\r\n    #http_method_override: true\r\n\r\n    # Enables session support. Note that the session will ONLY be started if you read or write from it.\r\n    # Remove or comment this section to explicitly disable session support.\r\n    session:\r\n        handler_id: null\r\n        cookie_secure: auto\r\n        cookie_samesite: lax\r\n\r\n    #esi: true\r\n    #fragments: true\r\n    php_errors:\r\n        log: true\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- config/packages/framework.yaml	(revision 6b8a4301168af1120585b02f113302a26e6035c4)
++++ config/packages/framework.yaml	(date 1604757098144)
+@@ -7,9 +7,10 @@
+     # Enables session support. Note that the session will ONLY be started if you read or write from it.
+     # Remove or comment this section to explicitly disable session support.
+     session:
+-        handler_id: null
++        handler_id: ~
+         cookie_secure: auto
+         cookie_samesite: lax
++        cookie_lifetime: 15778800
+ 
+     #esi: true
+     #fragments: true
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_46__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_46__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_18_14__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_18_14__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_53__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_53__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_20__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_20__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_16_37__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_16_37__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_19__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_19__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_17_04__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_17_04__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_14_01__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_14_01__Default_Changelist_.xml
