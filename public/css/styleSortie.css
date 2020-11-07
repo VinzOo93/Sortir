@@ -13,7 +13,7 @@ body {
     margin-right:15%;
 }
 table {
-    background-color: white;
+    background-color: white !important;
 }
 th {
     border: solid;
@@ -25,6 +25,7 @@ tr, td {
 
 .logo-sun {
     height: 65px;
+    background-color: white;
 }
 
 .title-sun {
