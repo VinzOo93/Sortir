@@ -83,7 +83,7 @@ class AppFixtures extends Fixture
             $user->setEmail('momo'.$u.'@live.fr');
             $user->setRoles(['ROLE_USER']);
             $user->setPassword('momo'.$u);
-            $user->setCampus($campus, (mt_rand(1,3)));
+            $user->setCampus($campus, (mt_rand(1,300)));
 
             $manager->persist($user);
         }
@@ -94,12 +94,14 @@ class AppFixtures extends Fixture
             $sortie->setNom(self::NOM[$i]);
             $sortie->setDateHeureDebut(new \DateTime('now'), date_interval_create_from_date_string('+ 61 days'));
             $sortie->setDuree(mt_rand(1, 500));
+            $sortie->setInscrit($sortie->getInscrit([mt_rand(1, 15)]));
             $sortie->setNbInscriptionMax(mt_rand(1, 15));
             $sortie->setDateLimiteInscription(new \DateTime('2020-12-15'), date_interval_create_from_date_string('+ 90 days'));
             $sortie->setInfosSortie(self::INFOS);
-            $sortie->setEtat($etat, mt_rand(0,4));
-            $sortie->setOrganisateur( $i  );
-            $sortie->setSiteOrganisateur($campus, mt_rand(18 , 19));
+            $sortie->setEtat($etat, mt_rand(1,300));
+            $sortie->setOrganisateur(mt_rand(1,300));
+            $sortie->setLieu($lieu, mt_rand(1,300));
+            $sortie->setSiteOrganisateur($campus, mt_rand(1 , 300));
 
             $manager->persist($sortie);
         }
