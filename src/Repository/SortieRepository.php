@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Sortie;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,7 +21,7 @@ class SortieRepository extends ServiceEntityRepository
     }
 
 
-    public function filter($data, $inscrit)
+    public function filter(Sortie $sorties,User $inscrit)
     {
         $query = $this
             ->createQueryBuilder('s')
@@ -63,8 +63,9 @@ class SortieRepository extends ServiceEntityRepository
             $query = $query
                 ->select('s.dateHeureDebut < NOW');
         }
+        $sorties = $query->getQuery()->getResult();
+        return $sorties;
     }
-
 }
 
     /*

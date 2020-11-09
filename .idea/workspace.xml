@@ -20,6 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Sortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sortie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SortieFilterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SortieFilterType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SortieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SortieRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +183,7 @@
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
       <workItem from="1604756962517" duration="4815000" />
-      <workItem from="1604913085423" duration="17117000" />
+      <workItem from="1604913085423" duration="27797000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -327,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604938202073</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig">
+      <created>1604938712320</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1604938712320</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,11 +400,11 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2094" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604331555788" />
-    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1604685264777">
+    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1604943558682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604395490656" />
-    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685264777" />
+    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604943558682" />
     <state x="2458" y="98" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604661259289" />
     <state x="2370" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604586587728">
       <screen x="1920" y="0" width="1440" height="860" />
@@ -424,20 +436,20 @@
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604417770284" />
     <state x="732" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604768888649" />
     <state x="2469" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604576268250" />
-    <state x="193" y="169" width="1103" height="648" maximized="true" key="dock-window-1" timestamp="1604936095926">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="193" y="169" width="1103" height="648" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604931716378" />
-    <state x="193" y="169" width="1103" height="648" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604936095926" />
-    <state x="332" y="76" width="1456" height="774" key="dock-window-2" timestamp="1604757364327">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="332" y="76" width="1456" height="774" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604687472854" />
-    <state x="332" y="76" width="1456" height="774" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604757364327" />
-    <state x="1920" y="0" width="1456" height="846" key="dock-window-3" timestamp="1604685422493">
+    <state x="2123" y="41" width="1103" height="648" maximized="true" key="dock-window-1" timestamp="1604944440777">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
-    <state x="1920" y="0" width="1456" height="846" key="dock-window-3/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
+    <state x="2123" y="41" width="1103" height="648" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604944440777" />
+    <state x="300" y="139" width="1103" height="648" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604939793547" />
+    <state x="1834" y="106" width="1457" height="869" maximized="true" key="dock-window-2" timestamp="1604942853327">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="1834" y="106" width="1457" height="869" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604942853327" />
+    <state x="88" y="17" width="1457" height="869" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604939793548" />
+    <state x="1920" y="0" width="1456" height="948" key="dock-window-3" timestamp="1604948196873">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="1920" y="0" width="1456" height="948" key="dock-window-3/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604948196873" />
     <state x="1607" y="188" width="1456" height="846" key="dock-window-4" timestamp="1604757364327">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>

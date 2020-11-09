@@ -87,7 +87,9 @@ class Sortie
      */
     public function __construct()
     {
+        $this->sortie = new ArrayCollection();
         $this->inscrit = new ArrayCollection();
+
     }
 
     /**
@@ -246,4 +248,12 @@ class Sortie
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return (string) $this->sortie;
+        return (string) $this->inscrit;
+
+    }
+
 }
