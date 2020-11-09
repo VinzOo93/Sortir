@@ -54,4 +54,23 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/update", name="update")
+     */
+    public function update(): Response
+    {
+
+        $user = $this->getUser();
+
+
+        $profileRepo = $this->getDoctrine()->getRepository(User::class);
+        $data_user = $profileRepo->findOneBy(['id' => $user->getId()]);
+
+
+
+            return $this->render('profile/update.html.twig',[
+                'data_user' => $data_user
+            ]);
+    }
 }
