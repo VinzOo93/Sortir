@@ -4,8 +4,14 @@
 
 {% block body %}
 <body class="body-acceuil">
-<h3>Filtrer les sorties</h3>
 
+<div class="form-filter form-group">
+    {{ form_start(SortieFilter) }}
+    <h3>Filtrer les sorties</h3>
+    {{ form_widget(SortieFilter) }}
+    <button class="btn btn-lg btn-primary">Recherche</button>
+    {{ form_end(SortieFilter) }}
+</div>
 <div class="table-wrapper">
     <table class="table table-borderless">
         <thead>

@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;midifcation image sun fond transparent">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SortieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SortieRepository.php" afterDir="false" />
+    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig">
       <change beforePath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +178,7 @@
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
       <workItem from="1604756962517" duration="4815000" />
-      <workItem from="1604913085423" duration="16464000" />
+      <workItem from="1604913085423" duration="17117000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -325,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604773707313</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig">
+      <created>1604938202073</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1604938202073</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +367,8 @@
     <MESSAGE value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement &#10;&#10;Base de donnée essaie à jour avec Fixtrime&#10;&#10;Affiche tableau depuis BDD OK" />
     <MESSAGE value="VO:&#10;&#10;Mise en page tableau page d'acceuil OK modofication est ajout d'actions&#10;&#10;mise à jour app fixture et tableau sortie Acceuil &#10;&#10;Mise à jour bdd et vue tableau nombre inscrit" />
     <MESSAGE value="VO:&#10;&#10;midifcation image sun fond transparent" />
-    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;midifcation image sun fond transparent" />
+    <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig" />
+    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
