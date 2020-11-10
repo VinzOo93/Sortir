@@ -23,11 +23,6 @@ class Etat
      */
     private $libelle;
 
-    public function __construct()
-    {
-        $this->etat = new  ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -43,11 +38,6 @@ class Etat
         $this->libelle = $libelle;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return (string) $this->etat;
     }
 
 
