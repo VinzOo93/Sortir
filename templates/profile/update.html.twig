@@ -2,7 +2,22 @@
 
 {% block header %}<h1>My Profile</h1>{% endblock %}
 
-{% block body %} {% endblock %}
+{% block body %}
+
+  <body class="body-update">
+
+  <ul>
+
+    <ul>Prénom : {{ app.user.prenom}}</ul>
+    <li>Nom : {{ app.user.nom  }}</li>
+    <li>Téléphone : {{ app.user.telephone  }}</li>
+    <li>Email : {{ app.user.email  }}</li>
+    <li>Campus : {{ app.user.campus }}</li>
+
+  </ul>
+
+  </body>
+{% endblock %}
 
 {% block footer %}{{ parent() }}{% endblock %}
 

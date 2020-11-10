@@ -64,9 +64,8 @@ class RegistrationController extends AbstractController
         $user = $this->getUser();
 
 
-        $profileRepo = $this->getDoctrine()->getRepository(User::class);
-        $data_user = $profileRepo->findOneBy(['id' => $user->getId()]);
-
+        $this->getDoctrine()->getRepository(User::class);
+        $data_user = $user;
 
 
             return $this->render('profile/update.html.twig',[
