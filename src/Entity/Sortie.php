@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SortieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -44,53 +45,47 @@ class Sortie
     private $dateLimiteInscription;
 
     /**
-     * @ORM\Column(type="string", length=1000, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $infosSortie;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Etat")
-     * @ORM\JoinColumn(name="etat_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $etat;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(name="organisateur", referencedColumnName="id")
-     * @ORM\Column(unique=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $organisateur;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(name="inscrit", referencedColumnName="id")
-     * @ORM\Column(unique=true, nullable=true)
-     */
-    private $inscrit;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Lieu")
-     * @ORM\JoinColumn(name="lieu_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $lieu;
 
     /**
      * @ORM\ManyToOne (targetEntity="App\Entity\Campus")
-     * @ORM\JoinColumn(name="campOrganisateur", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
      *
      */
     private $siteOrganisateur;
 
     /**
-     * Sortie constructor.
-     * @param $inscrit
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="sorties")
      */
+    private $inscrits;
+
     public function __construct()
     {
-        $this->sortie = new ArrayCollection();
-        $this->inscrit = new ArrayCollection();
-
+        $this->inscrits = new ArrayCollection();
     }
+
+
 
     /**
      * @return mixed
@@ -126,22 +121,6 @@ class Sortie
         $this->lieu = $lieu;
     }
 
-
-    /**
-     * @param mixes
-     */
-    public function getInscrit()
-    {
-        return $this->inscrit;
-    }
-
-    /**
-     * @param ArrayCollection $inscrit
-     */
-    public function setInscrit(ArrayCollection $inscrit): void
-    {
-        $this->inscrit = $inscrit;
-    }
 
     /**
      * @return mixed
@@ -249,11 +228,28 @@ class Sortie
         return $this;
     }
 
-    public function __toString()
+    /**
+     * @return Collection|User[]
+     */
+    public function getInscrits(): Collection
     {
-        return (string) $this->sortie;
-        return (string) $this->inscrit;
+        return $this->inscrits;
+    }
 
+    public function addInscrit(User $inscrit): self
+    {
+        if (!$this->inscrits->contains($inscrit)) {
+            $this->inscrits[] = $inscrit;
+        }
+
+        return $this;
+    }
+
+    public function removeInscrit(User $inscrit): self
+    {
+        $this->inscrits->removeElement($inscrit);
+
+        return $this;
     }
 
 }

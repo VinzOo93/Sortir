@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -57,13 +58,18 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Campus")
-     * @ORM\JoinColumn (name="campus", referencedColumnName="id")
+     * @ORM\JoinColumn (nullable=false)
      */
     private $campus;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Sortie::class, mappedBy="inscrits")
+     */
+    private $sorties;
+
     public function __construct()
     {
-        $this->user =new ArrayCollection();
+        $this->sorties = new ArrayCollection();
     }
 
     /**
@@ -215,13 +221,30 @@ class User implements UserInterface
     }
 
     /**
-     * toString
-     * @return $this
+     * @return Collection|Sortie[]
      */
-    public function __toString()
+    public function getSorties(): Collection
     {
-       return (string) $this->user;
+        return $this->sorties;
+    }
 
+    public function addSorty(Sortie $sorty): self
+    {
+        if (!$this->sorties->contains($sorty)) {
+            $this->sorties[] = $sorty;
+            $sorty->addInscrit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSorty(Sortie $sorty): self
+    {
+        if ($this->sorties->removeElement($sorty)) {
+            $sorty->removeInscrit($this);
+        }
+
+        return $this;
     }
 
 
