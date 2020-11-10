@@ -4,10 +4,10 @@ namespace App\Form;
 
 use App\Entity\Campus;
 use App\Entity\FilterSortie;
+use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,20 +19,23 @@ class SortieFilterType extends AbstractType
         $builder
             ->add('campus', EntityType::class, [
                 'class' => Campus::class,
-                'choice_label' => 'nomCampus',
-                'label' => false,
+                'choice_label' => 'nom',
                 'placeholder' => 'Rechercher par campus',
             ])
-            ->add('q', TextType::class, [
-              'label' => false,
+            ->add('name', TextType::class, [
               'attr' => [
                   'placeholder' => 'Rechercher par mots...',
               ],
             ])
-            ->add('dateStart',  DateType::class, [
+            ->add('dateMax',  DateTimeType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy,MM,dd',
                 'label' => "Date de début",
+            ])
+            ->add('dateMin', DateTimeType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy,MM,dd',
+                'label' => "Date de fin",
             ])
             ->add('organisateur', CheckboxType::class, [
                 'label' => 'Sorties dont je suis l\'organisateur',
@@ -45,7 +48,7 @@ class SortieFilterType extends AbstractType
             ->add('noInscrit', CheckboxType::class, [
                 'label' => 'Sorties auxquelles je ne suis pas inscrit/e',
             ])
-            ->add('duree', CheckboxType::class ,[
+            ->add('past', CheckboxType::class ,[
                 'label' => 'Sorties passées',
                 ]);
     }
@@ -54,12 +57,7 @@ class SortieFilterType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => FilterSortie::class,
-            'method' => 'GET',
-            'csrf_protection' => false
+
         ]);
-    }
-    public function getBlockPrefix()
-    {
-        return '';
     }
 }

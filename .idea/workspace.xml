@@ -19,15 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé">
-      <change afterPath="$PROJECT_DIR$/src/Entity/FilterSortie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé &#10;&#10;Mise à jour base de donnée par Philippe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/FilterSortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/FilterSortie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/SortieFilterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SortieFilterType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/SortieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SortieRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +166,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -186,7 +183,7 @@
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
       <workItem from="1604756962517" duration="4815000" />
-      <workItem from="1604913085423" duration="52353000" />
+      <workItem from="1604913085423" duration="59189000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -363,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605004668571</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé &#10;&#10;Mise à jour base de donnée par Philippe">
+      <created>1605038052375</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1605038052384</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +409,8 @@
     <MESSAGE value="VO:&#10;&#10;midifcation image sun fond transparent" />
     <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig" />
     <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé" />
-    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé" />
+    <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé &#10;&#10;Mise à jour base de donnée par Philippe" />
+    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé &#10;&#10;Mise à jour base de donnée par Philippe" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
@@ -451,12 +456,16 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2458" y="152" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605012503053" />
-    <state x="2180" y="60" key="SettingsEditor" timestamp="1604932832196">
+    <state x="2180" y="60" key="SettingsEditor" timestamp="1605040418869">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604421311072" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482755039" />
-    <state x="2180" y="60" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604932832196" />
+    <state x="2180" y="60" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605040418869" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1605043208803">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605043208803" />
     <state x="2232" y="162" key="Vcs.Push.Dialog.v2" timestamp="1605004849436">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
@@ -488,15 +497,19 @@
     </state>
     <state x="1920" y="0" width="1456" height="720" maximized="true" key="dock-window-4/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605012783210" />
     <state x="192" y="236" width="1456" height="720" maximized="true" key="dock-window-4/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605013880082" />
-    <state x="2236" y="97" width="1184" height="785" key="dock-window-5" timestamp="1605028267237">
+    <state x="2236" y="97" width="1184" height="785" maximized="true" key="dock-window-5" timestamp="1605038073304">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2236" y="97" width="1184" height="785" maximized="true" key="dock-window-5/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605023236806" />
-    <state x="2236" y="97" width="1184" height="785" key="dock-window-5/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605028267237" />
-    <state x="677" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1605014333105">
+    <state x="2236" y="97" width="1184" height="785" maximized="true" key="dock-window-5/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605038073304" />
+    <state x="0" y="0" width="1413" height="848" maximized="true" key="dock-window-6" timestamp="1605039324170">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="677" y="291" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605014333105" />
+    <state x="0" y="0" width="1413" height="848" maximized="true" key="dock-window-6/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605039324170" />
+    <state x="677" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1605041736412">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="677" y="291" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605041736412" />
     <state x="2296" y="195" key="run.anything.popup" timestamp="1604331742854">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
