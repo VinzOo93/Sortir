@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Sortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sortie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SortieFilterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SortieFilterType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SortieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SortieRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +176,7 @@
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
       <workItem from="1604756962517" duration="4815000" />
-      <workItem from="1604913085423" duration="27797000" />
+      <workItem from="1604913085423" duration="27971000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -339,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604938712320</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé">
+      <created>1604949621442</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1604949621443</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +380,8 @@
     <MESSAGE value="VO:&#10;&#10;Mise en page tableau page d'acceuil OK modofication est ajout d'actions&#10;&#10;mise à jour app fixture et tableau sortie Acceuil &#10;&#10;Mise à jour bdd et vue tableau nombre inscrit" />
     <MESSAGE value="VO:&#10;&#10;midifcation image sun fond transparent" />
     <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig" />
-    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig" />
+    <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé" />
+    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
