@@ -24,14 +24,14 @@ class SortieController extends AbstractController
     {
 
         $user= $this->getUser();
-        $campusrepo = $this->getDoctrine()->getRepository(Campus::class);
-        $campus = $campusrepo ->findAll();
+        $campus = $this->getDoctrine()->getRepository(Campus::class);
         $data = new FilterSortie();
-        $form =  $this->createForm(SortieFilterType::class, $data, $campus);
+        $form =  $this->createForm(SortieFilterType::class, $data);
         $form->handleRequest($request);
         $sortiesRepo = $sortieRepository->filter($data, $user);
 
       return $this->render('sortie/SortieAcceuil.html.twig', [
+                'campus' => $campus,
                 'sorties' => $sortiesRepo,
                 'user' =>$user,
                 'SortieFilterType' => $form->createView()

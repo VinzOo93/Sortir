@@ -7,6 +7,7 @@ namespace App\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints\Collection;
 
 class FilterSortie
 {
@@ -55,18 +56,16 @@ class FilterSortie
      */
     public function __construct()
     {
-
-       return $this->campus;
-
+      return  $this->campus = new ArrayCollection();
     }
 
 
     /**
-     * @return Campus
+     * @return Campus|ArrayCollection|Collection
      */
-    public function getCampus(): Campus
+    public function getCampus()
     {
-         $this->campus = new ArrayCollection();
+        return $this->campus;
     }
 
     /**

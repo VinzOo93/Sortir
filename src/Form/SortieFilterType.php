@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Campus;
 use App\Entity\FilterSortie;
-use Doctrine\DBAL\Types\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -31,12 +30,12 @@ class SortieFilterType extends AbstractType
                   'placeholder' => 'Rechercher par mots...',
               ],
             ])
-            ->add('dateMax',  DateTimeType::class, [
+            ->add('dateMax',  \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy,MM,dd',
                 'label' => "Date de début",
             ])
-            ->add('dateMin', DateTimeType::class, [
+            ->add('dateMin', \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy,MM,dd',
                 'label' => "Date de fin",

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Sortie;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,8 +23,7 @@ class UserController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
-        $sorties = $sortieRepo -> findAll();
+
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
 
     }
