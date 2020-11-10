@@ -9,7 +9,7 @@
     {{ form_start(SortieFilterType) }}
     <h3>Filtrer les sorties</h3>
     {{ form_widget(SortieFilterType) }}
-    <button class="btn btn-lg btn-primary">Recherche</button>
+    <button class="btn btn-lg btn-primary">Rechercher</button>
     {{ form_end(SortieFilterType) }}
 </div>
 <div class="table-wrapper">
@@ -21,7 +21,7 @@
             <th scope="col">Clôture</th>
             <th scope="col">Inscrits/places</th>
             <th scope="col">Etat</th>
-            <th scope="col">Inscrit</th>
+            <th scope="col">Inscrits</th>
             <th scope="col">Organisateur</th>
             <th scope="col">Actions</th>
         </tr>
@@ -33,7 +33,7 @@
             <td>{{ sortie.nom }}</td>
             <td>{{ sortie.dateHeureDebut | date('d-m-Y')}}</td>
             <td>{{ sortie.dateLimiteInscription | date('d-m-Y')}}</td>
-            <td>{{ sortie.inscrit | length }} {{ "/"}} {{ sortie.nbInscriptionMax}} </td>
+            <td>{{ sortie.inscrits | length }} {{ "/"}} {{ sortie.nbInscriptionMax}} </td>
             <td>{{ sortie.etat.libelle }}</td>
             <td>{{ "#"}}</td>
             <td>{{ sortie.organisateur }}</td>

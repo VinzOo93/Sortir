@@ -2,8 +2,8 @@
 
 namespace App\Repository;
 
+use App\Entity\FilterSortie;
 use App\Entity\Sortie;
-use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,14 +21,14 @@ class SortieRepository extends ServiceEntityRepository
     }
 
 
-    public function filter(Sortie $sorties,User $inscrit)
+    public function filter(FilterSortie $search, $user)
     {
         $query = $this
             ->createQueryBuilder('s')
             ->select('o', 's', 'c', 'p')
             ->leftJoin('s.organisateur', 'o')
             ->leftJoin('s.siteOrganisateur', 'c')
-            ->leftJoin('s.inscrit', 'p')
+            ->leftJoin('s.inscrits', 'p')
             ->andWhere("DATE_ADD(DATE_ADD(s.dateHeureDebut, s.duree, 'minute'),1, 'month' -> CURRENT_TIMESTAMP()");;
         if (!empty($search->campus)) {
             $query = $query
@@ -44,27 +44,29 @@ class SortieRepository extends ServiceEntityRepository
         if (!empty($search->d)) {
             $query = $query
                 ->andWhere('s.dateHeureDebut BETWEEN :from AND :to')
-                ->setParameter('from', $search->dateHeureDebut)
-                ->setParameter('to', $search->to);
+                ->setParameter('from', $search->dateStart)
+                ->setParameter('to', $search->dateStart);
         }
         if (!empty($search->o)) {
             $query = $query
-                ->select('o LIKE app.user.id');
+                ->andWhere('o = :val')
+                ->setParameter('val', $user);
         }
         if (!empty($search->p)) {
             $query = $query
-                ->select('p LIKE app.user.id');
+                ->andWhere('p = :val')
+                ->setParameter('val', $user);
         }
-        if (!empty($search)) {
+        if (!empty($search->p)) {
             $query = $query
-                ->select('p NOT LIKE app.user.id');
+            ->andWhere('p != :val')
+            ->setParameter('val', $user);
         }
         if (!empty($search->s)) {
             $query = $query
-                ->select('s.dateHeureDebut < NOW');
+                ->andWhere('s.dateHeureDebut < NOW');
         }
-        $sorties = $query->getQuery()->getResult();
-        return $sorties;
+        return $query->getQuery()->getResult();
     }
 }
 

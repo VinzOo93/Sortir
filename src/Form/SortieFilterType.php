@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Campus;
-use App\Entity\Sortie;
+use App\Entity\FilterSortie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -22,11 +22,9 @@ class SortieFilterType extends AbstractType
                 'choice_label' => 'nomCampus',
                 'label' => false,
                 'placeholder' => 'Rechercher par campus',
-                'required' => false,
             ])
             ->add('q', TextType::class, [
               'label' => false,
-              'required' => false,
               'attr' => [
                   'placeholder' => 'Rechercher par mots...',
               ],
@@ -34,33 +32,34 @@ class SortieFilterType extends AbstractType
             ->add('dateStart',  DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy,MM,dd',
-                'required' => false,
                 'label' => "Date de début",
             ])
             ->add('organisateur', CheckboxType::class, [
                 'label' => 'Sorties dont je suis l\'organisateur',
-                'required' => false,
+
             ])
             ->add('inscrit',  CheckboxType::class, [
                 'label' => 'Sorties auxquelles je suis inscrit/e',
-                'required' => false,
-            ])
-            ->add('inscrit', CheckboxType::class, [
-                'label' => 'Sorties auxquelles je ne suis pas inscrit/e',
-                'required' => false,
 
+            ])
+            ->add('noInscrit', CheckboxType::class, [
+                'label' => 'Sorties auxquelles je ne suis pas inscrit/e',
             ])
             ->add('duree', CheckboxType::class ,[
                 'label' => 'Sorties passées',
-                'required' => false,
-
                 ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Sortie::class
+            'data_class' => FilterSortie::class,
+            'method' => 'GET',
+            'csrf_protection' => false
         ]);
+    }
+    public function getBlockPrefix()
+    {
+        return '';
     }
 }
