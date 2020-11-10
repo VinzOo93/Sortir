@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé &#10;&#10;Mise à jour base de donnée par Philippe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/FilterSortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/FilterSortie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/SortieFilterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SortieFilterType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SortieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SortieRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +180,7 @@
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
       <workItem from="1604756962517" duration="4815000" />
-      <workItem from="1604913085423" duration="59189000" />
+      <workItem from="1604913085423" duration="59348000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -367,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605038052384</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé &#10;&#10;Mise à jour base de donnée par Philippe">
+      <created>1605044452826</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1605044452826</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

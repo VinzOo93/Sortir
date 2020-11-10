@@ -19,8 +19,12 @@ class SortieFilterType extends AbstractType
         $builder
             ->add('campus', EntityType::class, [
                 'class' => Campus::class,
+                'label' => false,
                 'choice_label' => 'nom',
-                'placeholder' => 'Rechercher par campus',
+                'attr' => [
+                    'placeholder' => 'Rechercher par campus',
+                ]
+
             ])
             ->add('name', TextType::class, [
               'attr' => [
