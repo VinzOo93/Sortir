@@ -83,16 +83,16 @@ class FilterSortie
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName():? string
     {
         return $this->name;
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return FilterSortie
      */
-    public function setName(string $name): FilterSortie
+    public function setName(?string $name): FilterSortie
     {
         $this->name = $name;
         return $this;
