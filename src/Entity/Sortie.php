@@ -162,7 +162,7 @@ class Sortie
         return $this->dateHeureDebut;
     }
 
-    public function setDateHeureDebut(DateTime $dateHeureDebut): self
+    public function setDateHeureDebut(?DateTime $dateHeureDebut): self
     {
         $this->dateHeureDebut = $dateHeureDebut;
 
@@ -193,12 +193,12 @@ class Sortie
         return $this;
     }
 
-    public function getDateLimiteInscription(): DateTime
+    public function getDateLimiteInscription(): ?DateTime
     {
         return $this->dateLimiteInscription;
     }
 
-    public function setDateLimiteInscription( DateTime $dateLimiteInscription): self
+    public function setDateLimiteInscription(?DateTime $dateLimiteInscription): self
     {
         $this->dateLimiteInscription = $dateLimiteInscription;
 

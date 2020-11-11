@@ -34,85 +34,53 @@ class SortieRepository extends ServiceEntityRepository
             ->addSelect('p');
 
 
-        $query
-            ->andWhere('s.dateHeureDebut > DATE_SUB(:dateNow,1 ,\'month\')')
-            ->setParameter('dateNow', new DateTime());
 
+
+        if ($search->getCampus()) {
+             $query
+                ->andWhere('c = :campus')
+                ->setParameter('campus', $search->getCampus());
+        }
         if ($search->getName()) {
-            $query = $query
+             $query
                 ->andWhere('s.nom LIKE :name')
                 ->setParameter('name', '%'.$search->getName().'%');
         }
         if ($search->getDateMax()) {
-            $query = $query
-                ->andWhere('s.dateHeureDebut = :from')
+            $query
+                ->andWhere('s.dateHeureDebut > :from')
                 ->setParameter('from', $search->getDateMax());
         }
         if ($search->getDateMin()) {
-            $query = $query
-                ->andWhere('s.dateHeureDebut = :to')
+            $query
+                ->andWhere('s.dateHeureDebut < :to')
                 ->setParameter('to', $search->getDateMin());
         }
         if ($search->isOrganisateur()) {
-            $query = $query
+            $query
                 ->andWhere('o = :val')
                 ->setParameter('val', $user);
         }
         if ($search->isInscrit()) {
-            $query = $query
+             $query
                 ->andWhere('p = :val')
                 ->setParameter('val', $user);
         }
         if ($search->isInscrit()) {
-            $query = $query
+             $query
                 ->andWhere('p != :val')
                 ->setParameter('val', $user);
         }
         if ($search->isPast()) {
-            $query = $query
-                ->andWhere('s.dateHeureDebut < :now')
-                ->setParameter('now', 'now' | date('yyyy-MM-dd'));
+                $query
+                    ->andWhere('s.dateHeureDebut > DATE_SUB(:dateNow,1 ,\'month\')')
+                    ->setParameter('dateNow', new DateTime());
         }
-
-        /*    if (!empty($search->siteOrganisateur)) {
-                $query = $query
-                    ->andWhere('c.id = :val')
-                    ->setParameter('val', $search->siteOrganisateur);
-
-            }
-
-            if (!empty($search->d)) {
-                $query = $query
-                    ->andWhere('s.dateHeureDebut = :from')
-                    ->setParameter('from', $search->d);
-            }
-            if (!empty($search->d)){
-                $query =$query
-                    ->andWhere('s.dateHeureDebut = :to')
-                    ->setParameter('to', $search->d);
-            }
-            if (!empty($search->o)) {
-                $query = $query
-                    ->andWhere('o = :val')
-                    ->setParameter('val', $user);
-            }
-            if (!empty($search->p)) {
-                $query = $query
-                    ->andWhere('p = :val')
-                    ->setParameter('val', $user);
-            }
-            if (!empty($search->p)) {
-                $query = $query
-                ->andWhere('p != :val')
-                ->setParameter('val', $user);
-            }
-            if (!empty($search->s)) {
-                $query = $query
-                    ->andWhere('s.dateHeureDebut < :now');
-
-            }
-        */
         return $query->getQuery()->getResult();
+    }
+
+    public function add() {
+
     }
 }
 

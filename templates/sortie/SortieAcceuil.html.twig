@@ -30,6 +30,7 @@
                 <th scope="col">Actions</th>
             </tr>
             </thead>
+            <a href="{{ path('sortie_type') }}" style=" display: flex; justify-content: center; font-size: 26px; ">Ajouter votre sortie</a>
 
             <tbody>
             {% for sortie in sorties %}
@@ -56,7 +57,7 @@
         </div>
     </div>
     {% else %}
-    <h3>Aucune sorties trouvée</h3>
+    <h3 style="position: absolute; right: 57%;"  >Aucune sorties trouvées</h3>
     {% endif %}
     </div>
     </body>
