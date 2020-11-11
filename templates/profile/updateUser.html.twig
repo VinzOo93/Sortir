@@ -1,0 +1,20 @@
+{% extends 'sortie/SortieLayOut.html.twig' %}
+
+{% block title %}Mon profile{% endblock %}
+
+{% block body %}
+    <body class="body-updateUser">
+
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="form-updateUser form-group" style="display: flex; justify-content: center" >
+        {{ form_start(userForm) }}
+        <h1 >Mon Profile</h1>
+        {{ form_widget(userForm) }}
+        <button class="btn btn-lg btn-primary">Enregistrer</button>
+        <button type="button" class="btn btn-danger">Annuler</button>
+        {{ form_end(userForm) }} </div>
+
+    </body>
+{% endblock %}
