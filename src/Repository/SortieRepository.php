@@ -5,7 +5,6 @@ namespace App\Repository;
 use App\Entity\Sortie;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Query\AST\Functions\CurrentTimeFunction;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
