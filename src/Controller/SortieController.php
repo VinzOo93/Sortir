@@ -26,8 +26,8 @@ class SortieController extends AbstractController
         $filtreSortie = new FilterSortie($user->getCampus());
         $form =  $this->createForm(SortieFilterType::class, $filtreSortie);
         $form->handleRequest($request);
-        // $sortiesList = $sortieRepository->filter($filtreSortie, $user);
-        $sortiesList = $sortieRepository->findAll();
+        $sortiesList = $sortieRepository->filter($filtreSortie, $user);
+        // $sortiesList = $sortieRepository->findAll();
 
       return $this->render('sortie/SortieAcceuil.html.twig', [
                 'sorties' => $sortiesList,

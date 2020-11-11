@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
-use App\Entity\FilterSortie;
 use App\Entity\Sortie;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\AST\Functions\CurrentTimeFunction;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,70 +22,110 @@ class SortieRepository extends ServiceEntityRepository
     }
 
 
-    public function filter(FilterSortie $search, $user)
+    public function filter($search, $user)
     {
         $query = $this
             ->createQueryBuilder('s')
+            ->addSelect('s')
             ->leftJoin('s.organisateur', 'o')
+            ->addSelect('o')
             ->leftJoin('s.siteOrganisateur', 'c')
+            ->addSelect('c')
             ->leftJoin('s.inscrits', 'p')
-            ->select('o', 's', 'c', 'p')
-           // ->andWhere("DATE_ADD(DATE_ADD(s.dateHeureDebut, s.duree, 'minute'),1, 'month' > CURRENT_TIMESTAMP()")
-        ;
-    /*    if (!empty($search->siteOrganisateur)) {
-            $query = $query
-                ->andWhere('c.id = :val')
-                ->setParameter('val', $search->siteOrganisateur);
+            ->addSelect('p');
 
-        }
-        if (!empty($search->q)) {
+
+        $query
+            ->andWhere('s.dateHeureDebut > DATE_SUB(:dateNow,1 ,\'month\')')
+            ->setParameter('dateNow', new DateTime());
+
+        if ($search->getName()) {
             $query = $query
                 ->andWhere('s.nom LIKE :name')
-                ->setParameter('name', "%{$search->q}");
+                ->setParameter('name', '%'.$search->getName().'%');
         }
-        if (!empty($search->d)) {
+        if ($search->getDateMax()) {
             $query = $query
                 ->andWhere('s.dateHeureDebut = :from')
-                ->setParameter('from', $search->d);
+                ->setParameter('from', $search->getDateMax());
         }
-        if (!empty($search->d)){
-            $query =$query
+        if ($search->getDateMin()) {
+            $query = $query
                 ->andWhere('s.dateHeureDebut = :to')
-                ->setParameter('to', $search->d);
+                ->setParameter('to', $search->getDateMin());
         }
-        if (!empty($search->o)) {
+        if ($search->isOrganisateur()) {
             $query = $query
                 ->andWhere('o = :val')
                 ->setParameter('val', $user);
         }
-        if (!empty($search->p)) {
+        if ($search->isInscrit()) {
             $query = $query
                 ->andWhere('p = :val')
                 ->setParameter('val', $user);
         }
-        if (!empty($search->p)) {
+        if ($search->isInscrit()) {
             $query = $query
-            ->andWhere('p != :val')
-            ->setParameter('val', $user);
+                ->andWhere('p != :val')
+                ->setParameter('val', $user);
         }
-        if (!empty($search->s)) {
+        if ($search->isPast()) {
             $query = $query
-                ->andWhere('s.dateHeureDebut < :now');
+                ->andWhere('s.dateHeureDebut < :now')
+                ->setParameter('now', 'now' | date('yyyy-MM-dd'));
+        }
 
-        }
-    */    return $query->getQuery()->getResult();
+        /*    if (!empty($search->siteOrganisateur)) {
+                $query = $query
+                    ->andWhere('c.id = :val')
+                    ->setParameter('val', $search->siteOrganisateur);
+
+            }
+
+            if (!empty($search->d)) {
+                $query = $query
+                    ->andWhere('s.dateHeureDebut = :from')
+                    ->setParameter('from', $search->d);
+            }
+            if (!empty($search->d)){
+                $query =$query
+                    ->andWhere('s.dateHeureDebut = :to')
+                    ->setParameter('to', $search->d);
+            }
+            if (!empty($search->o)) {
+                $query = $query
+                    ->andWhere('o = :val')
+                    ->setParameter('val', $user);
+            }
+            if (!empty($search->p)) {
+                $query = $query
+                    ->andWhere('p = :val')
+                    ->setParameter('val', $user);
+            }
+            if (!empty($search->p)) {
+                $query = $query
+                ->andWhere('p != :val')
+                ->setParameter('val', $user);
+            }
+            if (!empty($search->s)) {
+                $query = $query
+                    ->andWhere('s.dateHeureDebut < :now');
+
+            }
+        */
+        return $query->getQuery()->getResult();
     }
 }
 
-    /*
-    public function findOneBySomeField($value): ?Sortie
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+/*
+public function findOneBySomeField($value): ?Sortie
+{
+    return $this->createQueryBuilder('s')
+        ->andWhere('s.exampleField = :val')
+        ->setParameter('val', $value)
+        ->getQuery()
+        ->getOneOrNullResult()
+    ;
+}
+*/
 

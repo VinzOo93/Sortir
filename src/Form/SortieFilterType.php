@@ -23,8 +23,10 @@ class SortieFilterType extends AbstractType
 
             ])
             ->add('name', TextType::class, [
-              'attr' => [
+                'label' => false,
+                'attr' => [
                   'placeholder' => 'Rechercher par nom ',
+
               ],
             ])
             ->add('dateMax',  DateType::class, [
