@@ -7,6 +7,7 @@ use App\Entity\FilterSortie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,42 +19,45 @@ class SortieFilterType extends AbstractType
         $builder
             ->add('campus', EntityType::class, [
                 'class' => Campus::class,
-                'label' => false,
                 'choice_label' => 'nom',
-                'attr' => [
-                    'placeholder' => 'Rechercher par campus',
-                ]
 
             ])
             ->add('name', TextType::class, [
               'attr' => [
-                  'placeholder' => 'Rechercher par mots...',
+                  'placeholder' => 'Rechercher par nom ',
               ],
             ])
-            ->add('dateMax',  \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class, [
+            ->add('dateMax',  DateType::class, [
                 'widget' => 'single_text',
-                'format' => 'yyyy,MM,dd',
                 'label' => "Date de début",
+                'required' => false
+
             ])
-            ->add('dateMin', \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class, [
+            ->add('dateMin', DateType::class, [
                 'widget' => 'single_text',
-                'format' => 'yyyy,MM,dd',
                 'label' => "Date de fin",
+                'required' => false
             ])
             ->add('organisateur', CheckboxType::class, [
                 'label' => 'Sorties dont je suis l\'organisateur',
+                'required' =>false,
 
             ])
             ->add('inscrit',  CheckboxType::class, [
                 'label' => 'Sorties auxquelles je suis inscrit/e',
+                'required' =>false,
 
             ])
             ->add('noInscrit', CheckboxType::class, [
                 'label' => 'Sorties auxquelles je ne suis pas inscrit/e',
+                'required' =>false,
+
             ])
             ->add('past', CheckboxType::class ,[
                 'label' => 'Sorties passées',
-                ]);
+                'required' =>false,
+
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

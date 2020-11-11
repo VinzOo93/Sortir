@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Campus;
 use App\Entity\FilterSortie;
 use App\Form\SortieFilterType;
 use App\Repository\SortieRepository;
@@ -24,16 +23,14 @@ class SortieController extends AbstractController
     {
 
         $user= $this->getUser();
-        $campus = $this->getDoctrine()->getRepository(Campus::class);
-        $data = new FilterSortie();
-        $form =  $this->createForm(SortieFilterType::class, $data);
+        $filtreSortie = new FilterSortie($user->getCampus());
+        $form =  $this->createForm(SortieFilterType::class, $filtreSortie);
         $form->handleRequest($request);
-        $sortiesRepo = $sortieRepository->filter($data, $user);
+        // $sortiesList = $sortieRepository->filter($filtreSortie, $user);
+        $sortiesList = $sortieRepository->findAll();
 
       return $this->render('sortie/SortieAcceuil.html.twig', [
-                'campus' => $campus,
-                'sorties' => $sortiesRepo,
-                'user' =>$user,
+                'sorties' => $sortiesList,
                 'SortieFilterType' => $form->createView()
         ]);
     }

@@ -6,8 +6,8 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\Collection;
+
 
 class FilterSortie
 {
@@ -23,6 +23,7 @@ class FilterSortie
 
     /**
      * @var DateTime
+     *
      */
     private $dateMax;
 
@@ -53,10 +54,11 @@ class FilterSortie
 
     /**
      * FilterSortie constructor.
+     * @param Campus $campus
      */
-    public function __construct()
+    public function __construct(Campus $campus)
     {
-      return  $this->campus = new ArrayCollection();
+       $this->campus = $campus;
     }
 
 
@@ -69,10 +71,10 @@ class FilterSortie
     }
 
     /**
-     * @param Campus $campus
+     * @param Campus|null $campus
      * @return FilterSortie
      */
-    public function setCampus(Campus $campus): FilterSortie
+    public function setCampus(?Campus $campus): FilterSortie
     {
         $this->campus = $campus;
         return $this;
@@ -99,16 +101,16 @@ class FilterSortie
     /**
      * @return DateTime
      */
-    public function getDateMax(): DateTime
+    public function getDateMax() :?DateTime
     {
         return $this->dateMax;
     }
 
     /**
-     * @param DateTime $dateMax
+     * @param DateTime|null $dateMax
      * @return FilterSortie
      */
-    public function setDateMax(DateTime $dateMax): FilterSortie
+    public function setDateMax(?DateTime $dateMax)
     {
         $this->dateMax = $dateMax;
         return $this;
@@ -117,16 +119,16 @@ class FilterSortie
     /**
      * @return DateTime
      */
-    public function getDateMin(): DateTime
+    public function getDateMin():?DateTime
     {
         return $this->dateMin;
     }
 
     /**
-     * @param DateTime $dateMin
+     * @param DateTime|null $dateMin
      * @return FilterSortie
      */
-    public function setDateMin(DateTime $dateMin): FilterSortie
+    public function setDateMin(?DateTime $dateMin)
     {
         $this->dateMin = $dateMin;
         return $this;

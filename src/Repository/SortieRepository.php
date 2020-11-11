@@ -25,53 +25,54 @@ class SortieRepository extends ServiceEntityRepository
     {
         $query = $this
             ->createQueryBuilder('s')
-            ->select('o', 's', 'c', 'p')
             ->leftJoin('s.organisateur', 'o')
             ->leftJoin('s.siteOrganisateur', 'c')
             ->leftJoin('s.inscrits', 'p')
-            ->andWhere("DATE_ADD(DATE_ADD(s.dateHeureDebut, s.duree, 'minute'),1, 'month' -> CURRENT_TIMESTAMP()");
-        if (!empty($search->getCampus())) {
+            ->select('o', 's', 'c', 'p')
+           // ->andWhere("DATE_ADD(DATE_ADD(s.dateHeureDebut, s.duree, 'minute'),1, 'month' > CURRENT_TIMESTAMP()")
+        ;
+    /*    if (!empty($search->siteOrganisateur)) {
             $query = $query
                 ->andWhere('c.id = :val')
-                ->setParameter('val', $search->getCampus());
+                ->setParameter('val', $search->siteOrganisateur);
 
         }
-        if (!empty($search->getName())) {
+        if (!empty($search->q)) {
             $query = $query
                 ->andWhere('s.nom LIKE :name')
-                ->setParameter('name', "%{$search->getName()}");
+                ->setParameter('name', "%{$search->q}");
         }
-        if (!empty($search->getDateMax())) {
+        if (!empty($search->d)) {
             $query = $query
                 ->andWhere('s.dateHeureDebut = :from')
-                ->setParameter('from', $search->getDateMax());
+                ->setParameter('from', $search->d);
         }
-        if (!empty($search->getDateMin())){
+        if (!empty($search->d)){
             $query =$query
                 ->andWhere('s.dateHeureDebut = :to')
-                ->setParameter('to', $search->getDateMin());
+                ->setParameter('to', $search->d);
         }
-        if (!empty($search->isOrganisateur())) {
+        if (!empty($search->o)) {
             $query = $query
                 ->andWhere('o = :val')
                 ->setParameter('val', $user);
         }
-        if (!empty($search->isInscrit())) {
+        if (!empty($search->p)) {
             $query = $query
                 ->andWhere('p = :val')
                 ->setParameter('val', $user);
         }
-        if (!empty($search->isNoInscrit())) {
+        if (!empty($search->p)) {
             $query = $query
             ->andWhere('p != :val')
             ->setParameter('val', $user);
         }
-        if (!empty($search->isPast())) {
+        if (!empty($search->s)) {
             $query = $query
-                ->andWhere('s.dateHeureDebut < :now')
-                ->setParameter('now', 'now' | date('yyyy,MM,dd') );
+                ->andWhere('s.dateHeureDebut < :now');
+
         }
-        return $query->getQuery()->getResult();
+    */    return $query->getQuery()->getResult();
     }
 }
 
