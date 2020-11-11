@@ -22,6 +22,7 @@ class Campus
      */
     private $nom;
 
+
     public function getId(): ?int
     {
         return $this->id;
