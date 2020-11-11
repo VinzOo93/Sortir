@@ -124,7 +124,6 @@ class User implements UserInterface
     }
 
 
-
     /**
      * @param mixed $prenom
      */

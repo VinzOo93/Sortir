@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_19__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_19__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_20__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_12_20__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_16_37__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_16_37__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_14_01__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_14_01__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_46__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_46__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_53__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2020_17_53__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_14_51__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_14_51__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_16_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_16_39__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2020_09_45__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2020_09_45__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Etat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Lieu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lieu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Sortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sortie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SortieFilterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SortieFilterType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +159,6 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -170,13 +167,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Sortir\src\Controller" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,6 +183,8 @@
       <workItem from="1604482225905" duration="2142000" />
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
+      <workItem from="1604756962517" duration="4815000" />
+      <workItem from="1604913085423" duration="32739000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -283,7 +277,84 @@
       <option name="project" value="LOCAL" />
       <updated>1604684526189</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement &#10;&#10;Base de donnée essaie à jour avec Fixtrime&#10;&#10;Affiche tableau depuis BDD OK">
+      <created>1604688083956</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1604688083956</updated>
+    </task>
+    <task id="LOCAL-00015" summary="VO:&#10;&#10;Mise en page tableau page d'acceuil OK modofication est ajout d'actions&#10;&#10;mise à jour app fixture et tableau sortie Acceuil &#10;&#10;Mise à jour bdd et vue tableau nombre inscrit">
+      <created>1604771427598</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1604771427598</updated>
+    </task>
+    <task id="LOCAL-00016" summary="VO:&#10;&#10;Mise en page tableau page d'acceuil OK modofication est ajout d'actions&#10;&#10;mise à jour app fixture et tableau sortie Acceuil &#10;&#10;Mise à jour bdd et vue tableau nombre inscrit">
+      <created>1604771611620</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1604771611620</updated>
+    </task>
+    <task id="LOCAL-00017" summary="VO:&#10;&#10;midifcation image sun fond transparent">
+      <created>1604773576747</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1604773576747</updated>
+    </task>
+    <task id="LOCAL-00018" summary="VO:&#10;&#10;midifcation image sun fond transparent">
+      <created>1604773614796</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1604773614796</updated>
+    </task>
+    <task id="LOCAL-00019" summary="VO:&#10;&#10;midifcation image sun fond transparent">
+      <created>1604773684670</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1604773684670</updated>
+    </task>
+    <task id="LOCAL-00020" summary="VO:&#10;&#10;midifcation image sun fond transparent">
+      <created>1604773707313</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1604773707313</updated>
+    </task>
+    <task id="LOCAL-00021" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig">
+      <created>1604938202073</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1604938202073</updated>
+    </task>
+    <task id="LOCAL-00022" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig">
+      <created>1604938712320</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1604938712320</updated>
+    </task>
+    <task id="LOCAL-00023" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé">
+      <created>1604949621442</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1604949621443</updated>
+    </task>
+    <task id="LOCAL-00024" summary="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé">
+      <created>1604999716973</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1604999716973</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +391,12 @@
     <MESSAGE value="VO :CODE  Fixture BDD terminé à mettre en BDD &#10;&#10;Template register.html.twig mise à jour" />
     <MESSAGE value="VO:&#10;&#10;Template register.html.twig mise à jour // ajout de bootstrap mise en page refaite" />
     <MESSAGE value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement" />
-    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement" />
+    <MESSAGE value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement &#10;&#10;Base de donnée essaie à jour avec Fixtrime&#10;&#10;Affiche tableau depuis BDD OK" />
+    <MESSAGE value="VO:&#10;&#10;Mise en page tableau page d'acceuil OK modofication est ajout d'actions&#10;&#10;mise à jour app fixture et tableau sortie Acceuil &#10;&#10;Mise à jour bdd et vue tableau nombre inscrit" />
+    <MESSAGE value="VO:&#10;&#10;midifcation image sun fond transparent" />
+    <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig" />
+    <MESSAGE value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé" />
+    <option name="LAST_COMMIT_MESSAGE" value="VO:&#10;&#10;Creation du filter des sorties dans le template SortieAcceuil.html.twig&#10;&#10;The form's view data is expected to be an instance of class App\Entity\User, but is an instance of class App\Entity\Sortie. You can avoid this error by setting the &quot;data_class&quot; option to null or by adding a view transformer that transforms an instance of class App\Entity\Sortie to an instance of App\Entity\User.&#10;&#10;IMPOSSIBLE d'afficher le formulaire doit être débuggé" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
@@ -340,11 +416,11 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2094" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604331555788" />
-    <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1604932290423">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1604943558682">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604932290423" />
-    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685264777" />
+    <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604395490656" />
+    <state x="717" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604943558682" />
     <state x="2458" y="98" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604661259289" />
     <state x="2370" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604586587728">
       <screen x="1920" y="0" width="1440" height="860" />
@@ -358,45 +434,43 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2443" y="134" key="Github.UntrackedFilesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604313316542" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1604912616808">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604912616808" />
-    <state x="346" y="72" key="SettingsEditor" timestamp="1604482755039">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2180" y="60" key="SettingsEditor" timestamp="1604932832196">
+      <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604421311072" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482755039" />
-    <state x="416" y="196" key="Vcs.Push.Dialog.v2" timestamp="1604684575985">
+    <state x="2180" y="60" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604932832196" />
+    <state x="416" y="196" key="Vcs.Push.Dialog.v2" timestamp="1604773712074">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="333" y="155" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604417829474" />
-    <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604684575985" />
+    <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604773712074" />
     <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604653915696" />
-    <state x="2469" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604576268250">
-      <screen x="1920" y="0" width="1440" height="860" />
+    <state x="732" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604768888649">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604417770284" />
+    <state x="732" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604768888649" />
     <state x="2469" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604576268250" />
-    <state x="-1309" y="-307" width="1192" height="811" key="dock-window-1" timestamp="1604913477806">
-      <screen x="-1920" y="-495" width="1920" height="1040" />
-    </state>
-    <state x="-1309" y="-307" width="1192" height="811" key="dock-window-1/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604913477806" />
-    <state x="2030" y="0" width="1117" height="818" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604588473081" />
-    <state x="144" y="96" width="1117" height="818" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604651456273" />
-    <state x="-1607" y="-308" width="1350" height="638" key="dock-window-2" timestamp="1604941878307">
-      <screen x="-1920" y="-495" width="1920" height="1040" />
-    </state>
-    <state x="-1607" y="-308" width="1350" height="638" key="dock-window-2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604941878307" />
-    <state x="332" y="76" width="1456" height="774" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604687472854" />
-    <state x="1920" y="0" width="1456" height="846" key="dock-window-3" timestamp="1604685422493">
+    <state x="2123" y="41" width="1103" height="648" maximized="true" key="dock-window-1" timestamp="1604944440777">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
-    <state x="1920" y="0" width="1456" height="846" key="dock-window-3/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
-    <state x="1920" y="0" width="1456" height="846" key="dock-window-4" timestamp="1604685422493">
+    <state x="2123" y="41" width="1103" height="648" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604944440777" />
+    <state x="300" y="139" width="1103" height="648" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604939793547" />
+    <state x="1834" y="106" width="1457" height="869" maximized="true" key="dock-window-2" timestamp="1604942853327">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="1834" y="106" width="1457" height="869" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604942853327" />
+    <state x="88" y="17" width="1457" height="869" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604939793548" />
+    <state x="1947" y="2" width="1456" height="948" maximized="true" key="dock-window-3" timestamp="1605000672609">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="1947" y="2" width="1456" height="948" maximized="true" key="dock-window-3/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605000672609" />
+    <state x="1607" y="188" width="1456" height="846" key="dock-window-4" timestamp="1604757364327">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="1920" y="0" width="1456" height="846" key="dock-window-4/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
+    <state x="1607" y="188" width="1456" height="846" key="dock-window-4/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604757364327" />
     <state x="2296" y="195" key="run.anything.popup" timestamp="1604331742854">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>

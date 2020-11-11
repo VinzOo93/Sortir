@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\Sortie;
+use App\Entity\FilterSortie;
 use App\Form\SortieFilterType;
 use App\Repository\SortieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class SortieController extends AbstractController
 {
@@ -20,15 +21,16 @@ class SortieController extends AbstractController
      */
     public function home(SortieRepository $sortieRepository, Request $request): Response
     {
-        $sortie = new Sortie();
-        $form =  $this->createForm(SortieFilterType::class, $sortie);
-        $form->handleRequest($request);
-        $inscrit = $this -> getUser();
-        $sortiesRepo = $sortieRepository->filter($sortie, $inscrit);
 
-        return $this->render('sortie/SortieAcceuil.html.twig', [
-                'sorties' => $sortiesRepo,
-                'inscrit' =>$inscrit,
+        $user= $this->getUser();
+        $filtreSortie = new FilterSortie($user->getCampus());
+        $form =  $this->createForm(SortieFilterType::class, $filtreSortie);
+        $form->handleRequest($request);
+        $sortiesList = $sortieRepository->filter($filtreSortie, $user);
+        // $sortiesList = $sortieRepository->findAll();
+
+      return $this->render('sortie/SortieAcceuil.html.twig', [
+                'sorties' => $sortiesList,
                 'SortieFilterType' => $form->createView()
         ]);
     }
