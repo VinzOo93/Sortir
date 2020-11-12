@@ -6,6 +6,7 @@ use App\Entity\Sortie;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use function Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Sortie|null find($id, $lockMode = null, $lockVersion = null)
@@ -30,21 +31,22 @@ class SortieRepository extends ServiceEntityRepository
             ->addSelect('o')
             ->leftJoin('s.siteOrganisateur', 'c')
             ->addSelect('c')
-            ->leftJoin('s.inscrits', 'p')
+            ->leftJoin('s.inscrits','p')
             ->addSelect('p');
-
-
+        $query
+            ->andWhere('s.dateHeureDebut > DATE_SUB(:dateNow,1 ,\'month\')')
+            ->setParameter('dateNow', new DateTime('now'));
 
 
         if ($search->getCampus()) {
-             $query
+            $query
                 ->andWhere('c = :campus')
                 ->setParameter('campus', $search->getCampus());
         }
         if ($search->getName()) {
-             $query
+            $query
                 ->andWhere('s.nom LIKE :name')
-                ->setParameter('name', '%'.$search->getName().'%');
+                ->setParameter('name', '%' . $search->getName() . '%');
         }
         if ($search->getDateMax()) {
             $query
@@ -62,19 +64,19 @@ class SortieRepository extends ServiceEntityRepository
                 ->setParameter('val', $user);
         }
         if ($search->isInscrit()) {
-             $query
-                ->andWhere('p = :val')
+            $query
+                ->andWhere('p.id = :val')
                 ->setParameter('val', $user);
         }
-        if ($search->isInscrit()) {
-             $query
-                ->andWhere('p != :val')
-                ->setParameter('val', $user);
+        if ($search->isNoInscrit()) {
+            $query
+                ->andWhere('p.id != :val')
+                ->setParameter('val', $user );
         }
         if ($search->isPast()) {
-                $query
-                    ->andWhere('s.dateHeureDebut > DATE_SUB(:dateNow,1 ,\'month\')')
-                    ->setParameter('dateNow', new DateTime());
+            $query
+                ->andWhere('s.dateHeureDebut < :dateNow')
+                ->setParameter('dateNow', new DateTime('now'));
         }
         return $query->getQuery()->getResult();
     }
