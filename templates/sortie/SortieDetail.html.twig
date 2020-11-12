@@ -1,0 +1,45 @@
+{% extends 'sortie/SortieAcceuil.html.twig' %}
+
+{% block header %} {{ parent() }}  {% endblock %}
+
+{% block body %}
+    <body>
+    <div class="container">
+        <div class="row"></div>
+        <h1 style="text-align: center">Sortie</h1>
+        <div class="table-wrapper align-self-center col-10 ">
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th scope="col">Nom de la Sortie</th>
+                    <th scope="col">Date de la Sortie</th>
+                    <th scope="col">Clôture</th>
+                    <th scope="col">nombre de places</th>
+                    <th scope="col">infos complémentaires</th>
+                    <th scope="col">Campus</th>
+                    <th scope="col">Organisateur</th>
+                    <th scope="col">Lieu</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ sortie.nom }}</td>
+                        <td>{{ sortie.dateHeureDebut | date('d-m-Y à G:i') }}</td>
+                        <td>{{ sortie.dateLimiteInscription | date('d-m-Y') }}</td>
+                        <td>{{ sortie.nbInscriptionMax }}</td>
+                        <td>{{ sortie.infosSortie }}</td>
+                        <td>{{ sortie.siteOrganisateur.nom }}</td>
+                        <td>{{ sortie.organisateur.prenom }}</td>
+                        <td>{{ sortie.lieu.nom }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <a style="display: flex; justify-content: center; font-size: 30px " href="{{ path('sortie') }}">Revenir à l'acceuil</a>
+    </div>
+    </div>
+    </body>
+{% endblock %}
+
+{% block footer %} {{ parent() }} {% endblock %}

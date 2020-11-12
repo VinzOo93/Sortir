@@ -70,6 +70,10 @@ class SortieController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Votre évènement de sortie est enregistré !!');
+
+            return  $this ->render('sortie/SortieDetail.html.twig', [
+                "sortie" => $sortie
+            ]);
         }
 
 
@@ -79,5 +83,12 @@ class SortieController extends AbstractController
 
     }
 
+    public function detail($id) {
+        $sortieRepo = $this->getDoctrine()->getRepository(Sortie::Class);
+        $sortie = $sortieRepo->find($id);
+        return $this ->render('sortie/SortieDetail.html.twig', [
+            "sortie" => $sortie
+        ]);
+    }
 
 }
