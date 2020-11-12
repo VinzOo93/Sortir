@@ -5,6 +5,8 @@ namespace App\Entity;
 
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+use phpDocumentor\Reflection\Types\Collection;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class AddSortie
@@ -34,11 +36,11 @@ private $duree;
      */
 private $infos;
     /**
-     * @var string
+     * @var Ville
      */
 private $ville;
     /**
-     * @var string
+     * @var Lieu
      */
 private $lieu;
     /**
@@ -51,18 +53,31 @@ private $latitue;
 private $longitude;
 
     /**
+     * AddSortie constructor.
+     * @param Lieu|null $lieu
+     * @param Ville|null $ville
+     */
+    public function __construct(?Lieu $lieu, ?Ville $ville)
+    {
+        $this->lieu = $lieu;
+        $this->ville = $ville;
+
+    }
+
+
+    /**
      * @return string
      */
-    public function getNom(): string
+    public function getNom(): ?string
     {
         return $this->nom;
     }
 
     /**
-     * @param string $nom
+     * @param string|null $nom
      * @return AddSortie
      */
-    public function setNom(string $nom): AddSortie
+    public function setNom(?string $nom)
     {
         $this->nom = $nom;
         return $this;
@@ -71,16 +86,16 @@ private $longitude;
     /**
      * @return DateTime
      */
-    public function getDateDebut(): DateTime
+    public function getDateDebut(): ?DateTime
     {
         return $this->dateDebut;
     }
 
     /**
-     * @param DateTime $dateDebut
+     * @param DateTime|null $dateDebut
      * @return AddSortie
      */
-    public function setDateDebut(DateTime $dateDebut): AddSortie
+    public function setDateDebut(?DateTime $dateDebut)
     {
         $this->dateDebut = $dateDebut;
         return $this;
@@ -89,16 +104,16 @@ private $longitude;
     /**
      * @return DateTime
      */
-    public function getDateLimInscr(): DateTime
+    public function getDateLimInscr(): ?DateTime
     {
         return $this->dateLimInscr;
     }
 
     /**
-     * @param DateTime $dateLimInscr
+     * @param DateTime|null $dateLimInscr
      * @return AddSortie
      */
-    public function setDateLimInscr(DateTime $dateLimInscr): AddSortie
+    public function setDateLimInscr(?DateTime $dateLimInscr)
     {
         $this->dateLimInscr = $dateLimInscr;
         return $this;
@@ -107,16 +122,16 @@ private $longitude;
     /**
      * @return int
      */
-    public function getPlaceMax(): int
+    public function getPlaceMax(): ?int
     {
         return $this->placeMax;
     }
 
     /**
-     * @param int $placeMax
+     * @param int|null $placeMax
      * @return AddSortie
      */
-    public function setPlaceMax(int $placeMax): AddSortie
+    public function setPlaceMax(?int $placeMax)
     {
         $this->placeMax = $placeMax;
         return $this;
@@ -125,16 +140,16 @@ private $longitude;
     /**
      * @return int
      */
-    public function getDuree(): int
+    public function getDuree(): ?int
     {
         return $this->duree;
     }
 
     /**
-     * @param int $duree
+     * @param int|null $duree
      * @return AddSortie
      */
-    public function setDuree(int $duree): AddSortie
+    public function setDuree(?int $duree)
     {
         $this->duree = $duree;
         return $this;
@@ -143,70 +158,72 @@ private $longitude;
     /**
      * @return string
      */
-    public function getInfos(): string
+    public function getInfos(): ?string
     {
         return $this->infos;
     }
 
     /**
-     * @param string $infos
+     * @param string|null $infos
      * @return AddSortie
      */
-    public function setInfos(string $infos): AddSortie
+    public function setInfos(?string $infos)
     {
         $this->infos = $infos;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Ville|ArrayCollection|Collection
      */
-    public function getVille(): string
+    public function getVille(): ?Ville
     {
         return $this->ville;
     }
 
     /**
-     * @param string $ville
+     * @param Ville|null $ville
      * @return AddSortie
      */
-    public function setVille(string $ville): AddSortie
+    public function setVille(?Ville $ville): AddSortie
     {
         $this->ville = $ville;
         return $this;
     }
 
     /**
-     * @return string
+     * @return Lieu|ArrayCollection|Collection
      */
-    public function getLieu(): string
+    public function getLieu(): ?Lieu
     {
         return $this->lieu;
     }
 
     /**
-     * @param string $lieu
+     * @param Lieu|null $lieu
      * @return AddSortie
      */
-    public function setLieu(string $lieu): AddSortie
+    public function setLieu(?Lieu $lieu): AddSortie
     {
         $this->lieu = $lieu;
         return $this;
     }
 
+
+
     /**
      * @return float
      */
-    public function getLatitue(): float
+    public function getLatitue():? float
     {
         return $this->latitue;
     }
 
     /**
-     * @param float $latitue
+     * @param float|null $latitue
      * @return AddSortie
      */
-    public function setLatitue(float $latitue): AddSortie
+    public function setLatitue(?float $latitue)
     {
         $this->latitue = $latitue;
         return $this;
@@ -215,16 +232,16 @@ private $longitude;
     /**
      * @return float
      */
-    public function getLongitude(): float
+    public function getLongitude():? float
     {
         return $this->longitude;
     }
 
     /**
-     * @param float $longitude
+     * @param float|null $longitude
      * @return AddSortie
      */
-    public function setLongitude(float $longitude): AddSortie
+    public function setLongitude(?float $longitude)
     {
         $this->longitude = $longitude;
         return $this;

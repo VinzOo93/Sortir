@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Etat;
+use App\Entity\AddSortie;
+
 use App\Entity\FilterSortie;
+use App\Entity\Lieu;
 use App\Entity\Sortie;
+use App\Entity\Ville;
 use App\Form\SortieFilterType;
 use App\Form\SortieType;
 use App\Repository\SortieRepository;
@@ -47,25 +50,47 @@ class SortieController extends AbstractController
      */
     public function addSortie(EntityManagerInterface $em, Request $request)  {
 
+        $villeRepo = $this->getDoctrine()->getRepository(Ville::class);
+        $lieuRepo = $this->getDoctrine()->getRepository(Lieu::class);
+        $ville = $villeRepo->findAll();
+        $lieu = $lieuRepo->findAll();
+
+
         $user= $this->getUser();
         $sortie = new Sortie();
-        $sortieForm =$this ->createForm(SortieType::class, $sortie);
+        $l = new Lieu();
+        $v = new Ville();
+        $sortieForm = new AddSortie($sortie->getLieu(), $l->getVille());
+        $form = $this->createForm(SortieType::class, $sortieForm);
+        $form->handleRequest($request);
 
-        $sortie->setOrganisateur($user->getId());
-        $sortie->addInscrit($user->getId());
-        $sortie->setEtat(145);
 
-        $sortieForm->handleRequest($request);
-        if ($sortieForm->isSubmitted()) {
+
+
+
+
+        if ($form->isSubmitted()) {
+
+            $sortie->setOrganisateur($user->getId());
+            $sortie->addInscrit($user->getId());
+            $sortie->setEtat(146);
+
             $em->persist($sortie);
+            $em->persist($l);
+            $em->persist($v);
+
             $em->flush();
 
             $this->addFlash('success', 'Votre évènement de sortie est enregistré !!');
 
-
         }
-            return $this->render('sortie/SortieType.html.twig', [
-                "sortie_type" => $sortieForm->createView()
+
+
+
+        return $this->render('sortie/SortieType.html.twig', [
+                "sortie_type" => $form->createView(),
+                "lieu" => $lieu,
+                "ville" => $ville,
             ]);
 
     }
