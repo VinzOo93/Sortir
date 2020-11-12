@@ -6,27 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_11_2020_16_30__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_11_2020_18_57__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_10_28__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_12_37__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_13_56__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_34__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_15_58__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2020_16_38__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2020_10_12__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_14_51__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_14_51__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_16_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_11_2020_16_39__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2020_09_45__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2020_09_45__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_2020_11_42__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_2020_11_42__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2020_14_23__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2020_14_23__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/showUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/showUser.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/AddSortie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EditUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EditUserType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sortie/SortieType.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +175,7 @@
       <workItem from="1604482225905" duration="2142000" />
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
-      <workItem from="1605171302711" duration="10867000" />
+      <workItem from="1605171302711" duration="30802000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -304,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605118754361</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours ..">
+      <created>1605187453789</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605187453789</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,16 +335,18 @@
     <MESSAGE value="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement" />
     <MESSAGE value="AD: affichage profil fonctionnel" />
     <MESSAGE value="AD: formulaire information crée ainsi le controller et le twig ( en cours de finition). Lien mon profile , information et accueil ajouter au layout." />
-    <option name="LAST_COMMIT_MESSAGE" value="AD: formulaire information crée ainsi le controller et le twig ( en cours de finition). Lien mon profile , information et accueil ajouter au layout." />
+    <MESSAGE value="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours .." />
+    <option name="LAST_COMMIT_MESSAGE" value="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours .." />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="425" y="82" key="#CLI_Interpreters/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482641852" />
-    <state x="2266" y="108" key="#Inspections" timestamp="1604658892828">
-      <screen x="1920" y="0" width="1440" height="860" />
+    <state x="369" y="103" key="#Inspections" timestamp="1605198086169">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="369" y="103" key="#Inspections/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605198086169" />
     <state x="2266" y="108" key="#Inspections/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604658892828" />
     <state x="2453" y="284" key="#Notifications" timestamp="1604657620145">
       <screen x="1920" y="0" width="1440" height="860" />

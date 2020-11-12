@@ -26,6 +26,7 @@ class SortieController extends AbstractController
      */
     public function home(SortieRepository $sortieRepository, Request $request): Response
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
 
         $user= $this->getUser();
         $filtreSortie = new FilterSortie($user->getCampus());
@@ -39,36 +40,36 @@ class SortieController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/sortie_type", name="sortie_type")
-     * @param EntityManagerInterface $em
-     * @param Request $request
-     * @return RedirectResponse|Response
-     */
-    public function addSortie(EntityManagerInterface $em, Request $request)  {
-
-        $user= $this->getUser();
-        $sortie = new Sortie();
-        $sortieForm =$this ->createForm(SortieType::class, $sortie);
-
-        $sortie->setOrganisateur($user->getId());
-        $sortie->addInscrit($user->getId());
-        $sortie->setEtat(145);
-
-        $sortieForm->handleRequest($request);
-        if ($sortieForm->isSubmitted()) {
-            $em->persist($sortie);
-            $em->flush();
-
-            $this->addFlash('success', 'Votre évènement de sortie est enregistré !!');
-
-
-        }
-            return $this->render('sortie/SortieType.html.twig', [
-                "sortie_type" => $sortieForm->createView()
-            ]);
-
-    }
+//    /**
+//     * @Route("/sortie_type", name="sortie_type")
+//     * @param EntityManagerInterface $em
+//     * @param Request $request
+//     * @return RedirectResponse|Response
+//     */
+//    public function addSortie(EntityManagerInterface $em, Request $request)  {
+//
+//        $user= $this->getUser();
+//        $sortie = new Sortie();
+//        $sortieForm =$this ->createForm(SortieType::class, $sortie);
+//
+//        $sortie->setOrganisateur($user->getId());
+//        $sortie->addInscrit($user->getId());
+//        $sortie->setEtat(145);
+//
+//        $sortieForm->handleRequest($request);
+//        if ($sortieForm->isSubmitted()) {
+//            $em->persist($sortie);
+//            $em->flush();
+//
+//            $this->addFlash('success', 'Votre évènement de sortie est enregistré !!');
+//
+//
+//        }
+//            return $this->render('sortie/SortieType.html.twig', [
+//                "sortie_type" => $sortieForm->createView()
+//            ]);
+//
+//    }
 
 
 }
