@@ -62,7 +62,9 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/showUser", name="show_user")
+     * @Route("/showUser/{id}", name="show_user")
+     * requirements={"id","\d+"}
+     * methods={"GET"})
      */
     public function showUser(): Response
     {
@@ -75,14 +77,14 @@ class RegistrationController extends AbstractController
 
 
             return $this->render('profile/showUser.html.twig',[
-                'data_user' => $data_user
+                'data_user' => $data_user->getId()
             ]);
     }
 
     /**
      * @Route("/update/{id}", name="update",
-     * requirement={"id","\d+"},
-     * methods={"GET"})
+     * requirements={"id","\d+"},
+     * methods={"GET","POST"})
      */
 
     public function update(User $user, Request $request)
@@ -97,7 +99,7 @@ class RegistrationController extends AbstractController
 
             $this->addFlash('message','Utilisateur modifié avec succès');
 
-            return $this->redirectToRoute('/');
+            return $this->redirectToRoute('sortie');
         }
 
         return $this->render('profile/updateUser.html.twig',[
