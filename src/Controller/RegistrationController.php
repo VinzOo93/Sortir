@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\User;
+use App\Form\EditUserType;
 use App\Form\RegistrationFormType;
 use App\Security\AppAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -61,9 +62,11 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/update", name="update")
+     * @Route("/showUser/{id}", name="show_user")
+     * requirements={"id","\d+"}
+     * methods={"GET"})
      */
-    public function update(): Response
+    public function showUser(): Response
     {
 
         $user = $this->getUser();
@@ -73,8 +76,34 @@ class RegistrationController extends AbstractController
         $data_user = $user;
 
 
-            return $this->render('profile/update.html.twig',[
-                'data_user' => $data_user
+            return $this->render('profile/showUser.html.twig',[
+                'data_user' => $data_user->getId()
             ]);
+    }
+
+    /**
+     * @Route("/update/{id}", name="update",
+     * requirements={"id","\d+"},
+     * methods={"GET","POST"})
+     */
+
+    public function update(User $user, Request $request)
+    {
+        $form = $this->createForm(EditUserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('message','Utilisateur modifié avec succès');
+
+            return $this->redirectToRoute('sortie');
+        }
+
+        return $this->render('profile/updateUser.html.twig',[
+           'userForm'=> $form->createView(),
+        ]);
     }
 }
