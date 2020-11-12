@@ -8,6 +8,7 @@ use App\Entity\Lieu;
 use App\Entity\Sortie;
 use App\Entity\User;
 use App\Entity\Ville;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -44,6 +45,7 @@ class AppFixtures extends Fixture
             $ville->setNom(self::VILLE[$v]);
             $ville->setCodePostal(self::CODE_POSTALE[$v]);
 
+
             $manager->persist($ville);
         }
         $manager->flush();
@@ -53,9 +55,10 @@ class AppFixtures extends Fixture
             $lieu = new  Lieu();
             $lieu->setNom(self::LIEU[$l]);
             $lieu->setRue(self::RUE[$l]);
-            $lieu->setVille($ville, $l);
+            $lieu->setVille($ville);
 
             $manager->persist($lieu);
+            $this->setReference(Ville::class, $ville );
         }
         $manager->flush();
         for ($y = 0; $y<6; $y++)
@@ -83,27 +86,37 @@ class AppFixtures extends Fixture
             $user->setEmail('momo'.$u.'@live.fr');
             $user->setRoles(['ROLE_USER']);
             $user->setPassword('momo'.$u);
-            $user->setCampus($campus, (mt_rand(1,300)));
+            $user->setCampus($campus,mt_rand(1,3));
 
+            $sortie = new  Sortie();
             $manager->persist($user);
+            $this->setReference(Campus::class, $campus);
+            $this->setReference(Sortie::class, $sortie);
+
+
+
         }
         $manager->flush();
         for ($i = 0; $i < 6; $i++)
         {
             $sortie = new  Sortie();
             $sortie->setNom(self::NOM[$i]);
-            $sortie->setDateHeureDebut(new \DateTime('now'), date_interval_create_from_date_string('+ 61 days'));
+            $sortie->setDateHeureDebut(new DateTime('now'));
             $sortie->setDuree(mt_rand(1, 500));
-            $sortie->setInscrit($sortie->getInscrit([mt_rand(1, 15)]));
             $sortie->setNbInscriptionMax(mt_rand(1, 15));
-            $sortie->setDateLimiteInscription(new \DateTime('2020-12-15'), date_interval_create_from_date_string('+ 90 days'));
+            $sortie->setDateLimiteInscription(new DateTime('2020-12-15'));
             $sortie->setInfosSortie(self::INFOS);
             $sortie->setEtat($etat, mt_rand(1,300));
-            $sortie->setOrganisateur(mt_rand(1,300));
+            $sortie->setOrganisateur($user, mt_rand(1,300) );
             $sortie->setLieu($lieu, mt_rand(1,300));
             $sortie->setSiteOrganisateur($campus, mt_rand(1 , 300));
-
             $manager->persist($sortie);
+            $this->setReference(Campus::class, $campus );
+            $this->setReference(Etat::class, $etat );
+            $this->setReference(User::class, $user );
+
+
+
         }
         // $product = new Product();
         // $manager->persist($product);

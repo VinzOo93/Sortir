@@ -24,8 +24,9 @@ class SortieFilterType extends AbstractType
             ])
             ->add('name', TextType::class, [
                 'label' => false,
+                'required' => false,
                 'attr' => [
-                  'placeholder' => 'Rechercher par nom ',
+                  'placeholder' => 'Rechercher le nom de la sortie ',
 
               ],
             ])
