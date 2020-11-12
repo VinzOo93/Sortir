@@ -1,16 +1,22 @@
-{% extends 'sortie/SortieLayOut.html.twig' %}
+{% extends 'sortie/SortieAcceuil.html.twig' %}
+
+{% block header %} {{ parent() }}  {% endblock %}
 
 {% block body %}
-    <body class="body-register">
-    {% for flashError in app.flashes('vérifier vos entrée en formualaire') %}
-    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor%}
-    <div class="form-group" style="display: flex; justify-content: center">
+    <body>
+    <div class="container">
+        <div class="row"></div>
+    <div class="form-group col-12 d-flex justify-content-center" >
+
         {{ form_start(sortie_type) }}
         <h1>Nouvelle Sortie</h1>
         {{ form_widget(sortie_type) }}
-        {{ form_end(sortie_type) }}
+
         <button class="btn btn-lg btn-primary">Ajouter votre sortie</button>
+        {{ form_end(sortie_type) }}
+    </div>
     </div>
     </body>
 {% endblock %}
+
+{% block footer %} {{ parent() }} {% endblock %}

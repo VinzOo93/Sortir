@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\AddSortie;
 use App\Entity\Lieu;
+use App\Entity\Sortie;
 use App\Entity\Ville;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -23,46 +24,34 @@ class SortieType extends AbstractType
             ->add('nom', TextType::class, [
                 'label' => 'Nom de la sortie',
                 ])
-            ->add('dateDebut', DateTimeType::class, [
+            ->add('dateHeureDebut', DateTimeType::class, [
+
+                'widget' => 'single_text',
                 'label' => 'Date du début de la sortie',
             ])
-            ->add('dateLimInscr' ,DateType::class,[
+            ->add('dateLimiteInscription' ,DateType::class,[
+                'widget' => 'single_text',
                 'label' => 'date Limite d\'inscription'
             ])
-            ->add('placeMax', IntegerType::class, [
+            ->add('nbInscriptionMax', IntegerType::class, [
                 'label' => 'Nombre de participants maximum'
             ])
             ->add('duree', IntegerType::class, [
                 'label' => 'Durée en min'
             ])
-            ->add('infos', TextType::class,[
+            ->add('infosSortie', TextType::class,[
                 'label' => 'Descrition de l\'évènement'
                 ])
-            ->add('ville', EntityType::class, [
-                'class' => Ville::class,
-                'choice_label' => 'nom',
-            ])
             ->add('lieu', EntityType::class, [
                 'class' => Lieu::class,
                 'choice_label' => 'nom',
-            ])
-            ->add('latitue', null, [
-                'label' => 'latitude',
-                'required' => false,
-
-            ])
-            ->add('longitude',null,[
-                'label' => 'longitude',
-                'required' => false,
-            ])
-
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => AddSortie::class,
+            'data_class' => Sortie::class,
         ]);
     }
 }
