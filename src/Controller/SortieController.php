@@ -6,9 +6,7 @@ use App\Entity\AddSortie;
 
 use App\Entity\Etat;
 use App\Entity\FilterSortie;
-use App\Entity\Lieu;
 use App\Entity\Sortie;
-use App\Entity\Ville;
 use App\Form\SortieFilterType;
 use App\Form\SortieType;
 use App\Repository\SortieRepository;
@@ -52,7 +50,7 @@ class SortieController extends AbstractController
     public function addSortie(EntityManagerInterface $em, Request $request)
     {
         $publie = 146;
-        $etatRepo = $this ->getDoctrine()->getRepository(Etat::class);
+        $etatRepo = $this->getDoctrine()->getRepository(Etat::class);
 
 
         $user = $this->getUser();
@@ -71,7 +69,7 @@ class SortieController extends AbstractController
 
             $this->addFlash('success', 'Votre évènement de sortie est enregistré !!');
 
-            return  $this ->render('sortie/SortieDetail.html.twig', [
+            return $this->render('sortie/SortieDetail.html.twig', [
                 "sortie" => $sortie
             ]);
         }
@@ -83,10 +81,18 @@ class SortieController extends AbstractController
 
     }
 
-    public function detail($id) {
+    /**
+     * @Route ("/sortie_detail/{id}", name="sortie_detail",
+     *        requirements={"id":"\d+"},
+     *        methods={"GET"})
+     * @param $id
+     * @return Response
+     */
+    public function detail($id)
+    {
         $sortieRepo = $this->getDoctrine()->getRepository(Sortie::Class);
         $sortie = $sortieRepo->find($id);
-        return $this ->render('sortie/SortieDetail.html.twig', [
+        return $this->render('sortie/SortieDetail.html.twig', [
             "sortie" => $sortie
         ]);
     }

@@ -31,7 +31,6 @@
             </tr>
             </thead>
             <a href="{{ path('sortie_type') }}" style=" display: flex; justify-content: center; font-size: 26px; ">Ajouter votre sortie</a>
-
             <tbody>
             {% for sortie in sorties %}
                 <tr>
@@ -43,7 +42,7 @@
                     <td>-</td>
                     <td>{{ sortie.organisateur.prenom }}</td>
                     <td>
-                        <a href="#">Afficher</a>
+                        <a href="{{ path('sortie_detail',{'id' : sortie.id}) }}">Afficher</a>
                         <a href="#">Se désister</a>
                         <a href="#">Modifier</a>
                         <a href="#">Publier</a>
