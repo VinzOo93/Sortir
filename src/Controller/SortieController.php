@@ -28,6 +28,7 @@ class SortieController extends AbstractController
      */
     public function home(SortieRepository $sortieRepository, Request $request): Response
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
 
         $user = $this->getUser();
         $filtreSortie = new FilterSortie($user->getCampus());
@@ -49,6 +50,8 @@ class SortieController extends AbstractController
      */
     public function addSortie(EntityManagerInterface $em, Request $request)
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
+
         $publie = 146;
         $etatRepo = $this->getDoctrine()->getRepository(Etat::class);
 
@@ -90,6 +93,8 @@ class SortieController extends AbstractController
      */
     public function detail($id)
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
+
         $sortieRepo = $this->getDoctrine()->getRepository(Sortie::Class);
         $sortie = $sortieRepo->find($id);
         return $this->render('sortie/SortieDetail.html.twig', [
