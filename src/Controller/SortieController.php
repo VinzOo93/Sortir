@@ -46,7 +46,7 @@ class SortieController extends AbstractController
      * @return RedirectResponse|Response
      */
     public function addSortie(EntityManagerInterface $em, Request $request)  {
-        $etat = new  Etat();
+
         $user= $this->getUser();
         $sortie = new Sortie();
         $sortieForm =$this ->createForm(SortieType::class, $sortie);
