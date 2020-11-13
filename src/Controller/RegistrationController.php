@@ -116,7 +116,6 @@ class RegistrationController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-
             $this->addFlash('success','Utilisateur modifié avec succès');
 
             return $this->redirectToRoute('sortie');

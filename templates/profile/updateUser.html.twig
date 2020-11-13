@@ -8,7 +8,9 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-    <div class="form-updateUser form-group" style="display: flex; justify-content: center" >
+
+
+    <div class="form-updateUser form-group" style="display: flex; justify-content: center">
         {{ form_start(userForm) }}
 
         {% for message in app.flashes('success') %}
@@ -16,8 +18,7 @@
                 {{ message }}
             </div>
         {% endfor %}
-
-        <h1 >Mon Profil</h1>
+        <h1>Mon Profil</h1>
         {{ form_widget(userForm) }}
         <button class="btn btn-lg btn-primary">Enregistrer</button>
         <button type="button" class="btn btn-danger">Annuler</button>
@@ -25,3 +26,5 @@
 
     </body>
 {% endblock %}
+
+{% block footer %} {{ parent() }} {% endblock %}

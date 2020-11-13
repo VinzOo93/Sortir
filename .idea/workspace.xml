@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styleSortie.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styleSortie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EditUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EditUserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/showUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/showUser.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +173,7 @@
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
       <workItem from="1605171302711" duration="32352000" />
-      <workItem from="1605257458084" duration="7212000" />
+      <workItem from="1605257458084" duration="12126000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -310,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605216626609</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="AD: Changement de mot de passe fonctionnel. Voir une méthode de changement de champs sans devoir changer de mot de passe systématiquement CSS mes information fait mais peu encore avoir des améliorations">
+      <created>1605265358253</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1605265358253</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +356,8 @@
     <MESSAGE value="AD: formulaire information crée ainsi le controller et le twig ( en cours de finition). Lien mon profile , information et accueil ajouter au layout." />
     <MESSAGE value="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours .." />
     <MESSAGE value="AD: protection URL (ROLE_USER)" />
-    <option name="LAST_COMMIT_MESSAGE" value="AD: protection URL (ROLE_USER)" />
+    <MESSAGE value="AD: Changement de mot de passe fonctionnel. Voir une méthode de changement de champs sans devoir changer de mot de passe systématiquement CSS mes information fait mais peu encore avoir des améliorations" />
+    <option name="LAST_COMMIT_MESSAGE" value="AD: Changement de mot de passe fonctionnel. Voir une méthode de changement de champs sans devoir changer de mot de passe systématiquement CSS mes information fait mais peu encore avoir des améliorations" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">

@@ -64,8 +64,7 @@ footer
     text-align: center;
 }
 
-.show
-{
+.show {
     display: inline-grid;
     position: relative;
     top: 40px;
@@ -73,5 +72,13 @@ footer
     right: 43%;
 }
 
+.form-updateUser{
+
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 200px;
+    height: 720px;
+}
 
 
