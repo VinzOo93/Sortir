@@ -8,6 +8,7 @@ use App\Form\EditUserType;
 use App\Form\RegistrationFormType;
 use App\Security\AppAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,6 +27,8 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, AppAuthenticator $authenticator): Response
     {
+
+
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -68,6 +71,7 @@ class RegistrationController extends AbstractController
      */
     public function showUser(): Response
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
 
         $user = $this->getUser();
 
@@ -85,19 +89,35 @@ class RegistrationController extends AbstractController
      * @Route("/update/{id}", name="update",
      * requirements={"id","\d+"},
      * methods={"GET","POST"})
+     * @param User $user
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return RedirectResponse|Response
      */
 
-    public function update(User $user, Request $request)
+    public function update(User $user, Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
+
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();
+
+            // Si l'ancien mot de passe est bon
+
+            if (password_verify($form->get("oldPassword")->getData(), $user->getPassword())){
+
+                $newEncodedPassword = $passwordEncoder->encodePassword($user, $form->get("plainPassword")->getData());
+
+                $user->setPassword($newEncodedPassword);
+            }
+
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('message','Utilisateur modifié avec succès');
+            $this->addFlash('success','Utilisateur modifié avec succès');
 
             return $this->redirectToRoute('sortie');
         }

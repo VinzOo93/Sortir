@@ -1,24 +1,25 @@
 {% extends 'sortie/SortieLayOut.html.twig' %}
 
-{% block header %} {{ parent() }} <h1>Mes Informations</h1>{% endblock %}
+{% block header %} {{ parent() }}{% endblock %}
 
 {% block body %}
 
-  <body class="body-showUser">
+    <body>
 
-  <ul>
+    <div class="show">
 
-    <li>Prénom : {{ app.user.prenom }}</li>
-    <li>Nom : {{ app.user.nom  }}</li>
-    <li>Téléphone : {{ app.user.telephone }}</li>
-    <li>Email : {{ app.user.email }}</li>
-    <li>Campus : {{ app.user.campus.nom}}</li>
+        <h1>Mes Informations</h1>
+        <ul>
 
-  </ul>
-
- <a class="p-2 text-dark" href="{{ path('update', {'id' : app.user.id }) }}">Modifier mes informations</a>
-  </body>
-
+            <li>Prénom : {{ app.user.prenom }}</li>
+            <li>Nom : {{ app.user.nom }}</li>
+            <li>Téléphone : {{ app.user.telephone }}</li>
+            <li>Email : {{ app.user.email }}</li>
+            <li>Campus : {{ app.user.campus.nom }}</li>
+        </ul>
+        <a class="p-2 text-dark" href="{{ path('update', {'id' : app.user.id }) }}">Modifier mes informations</a>
+    </div>
+    </body>
 {% endblock %}
 
 {% block footer %}{{ parent() }}{% endblock %}

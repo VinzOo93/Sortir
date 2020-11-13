@@ -1,6 +1,6 @@
 {% extends 'sortie/SortieLayOut.html.twig' %}
 
-{% block title %}Mon profile{% endblock %}
+{% block title %} {{ parent() }} Mon profile{% endblock %}
 
 {% block body %}
     <body class="body-updateUser">
@@ -10,6 +10,13 @@
     {% endfor %}
     <div class="form-updateUser form-group" style="display: flex; justify-content: center" >
         {{ form_start(userForm) }}
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <h1 >Mon Profil</h1>
         {{ form_widget(userForm) }}
         <button class="btn btn-lg btn-primary">Enregistrer</button>

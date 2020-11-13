@@ -29,13 +29,22 @@ class EditUserType extends AbstractType
                 'required'=>true,
                 'attr'=> ['class'=> 'form-control'],
             ])
+
+            ->add('oldPassword', PasswordType::class, [
+                'mapped' => false,
+                'label' => 'Mot de passe actuel'
+
+            ])
+
             ->add('plainPassword', RepeatedType::class, [
                 'mapped' => false,
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les champs des mots de passe doivent correspondre',
                 'required' => true,
-                'first_options' => ['label' => 'Mot de passe '],
-                'second_options' => ['label' => 'Confirmation']
+                'first_options'  => array('label' => 'Nouveau Mot de passe'),
+                'second_options' => array('label' => 'Répéter le mot de passe'),
+                'mapped' => false,
+
             ])
             ->add('campus', null, [
                 'label' => 'campus',
