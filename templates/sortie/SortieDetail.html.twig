@@ -8,6 +8,11 @@
         <div class="row"></div>
         <h1 style="text-align: center">Sortie</h1>
         <div class="table-wrapper align-self-center col-10 ">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <table class="table table-borderless">
                 <thead>
                 <tr>

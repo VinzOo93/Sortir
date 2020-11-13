@@ -7,9 +7,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/styleSortie.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styleSortie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/AddSortie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EditUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EditUserType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieType.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,8 +175,7 @@
       <workItem from="1604482225905" duration="2142000" />
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
-      <workItem from="1605171302711" duration="32352000" />
-      <workItem from="1605257458084" duration="12126000" />
+      <workItem from="1605171302711" duration="30802000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -294,28 +296,7 @@
       <option name="project" value="LOCAL" />
       <updated>1605187453789</updated>
     </task>
-    <task id="LOCAL-00018" summary="AD: protection URL (ROLE_USER)">
-      <created>1605215425244</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1605215425244</updated>
-    </task>
-    <task id="LOCAL-00019" summary="AD: protection URL (ROLE_USER)">
-      <created>1605216626609</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1605216626609</updated>
-    </task>
-    <task id="LOCAL-00020" summary="AD: Changement de mot de passe fonctionnel. Voir une méthode de changement de champs sans devoir changer de mot de passe systématiquement CSS mes information fait mais peu encore avoir des améliorations">
-      <created>1605265358253</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1605265358253</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,9 +336,7 @@
     <MESSAGE value="AD: affichage profil fonctionnel" />
     <MESSAGE value="AD: formulaire information crée ainsi le controller et le twig ( en cours de finition). Lien mon profile , information et accueil ajouter au layout." />
     <MESSAGE value="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours .." />
-    <MESSAGE value="AD: protection URL (ROLE_USER)" />
-    <MESSAGE value="AD: Changement de mot de passe fonctionnel. Voir une méthode de changement de champs sans devoir changer de mot de passe systématiquement CSS mes information fait mais peu encore avoir des améliorations" />
-    <option name="LAST_COMMIT_MESSAGE" value="AD: Changement de mot de passe fonctionnel. Voir une méthode de changement de champs sans devoir changer de mot de passe systématiquement CSS mes information fait mais peu encore avoir des améliorations" />
+    <option name="LAST_COMMIT_MESSAGE" value="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours .." />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
@@ -410,27 +389,27 @@
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604421311072" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482755039" />
-    <state x="461" y="147" key="Vcs.Push.Dialog.v2" timestamp="1605216633502">
+    <state x="461" y="147" key="Vcs.Push.Dialog.v2" timestamp="1605105913674">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="461" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605216633502" />
+    <state x="461" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605105913674" />
     <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604684575985" />
     <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604653915696" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605258513105">
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605171929543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605258513105" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605171929543" />
     <state x="2469" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604576268250" />
-    <state x="-1437" y="-353" width="1183" height="811" key="dock-window-1" timestamp="1605258044619">
+    <state x="-1437" y="-353" width="1183" height="811" key="dock-window-1" timestamp="1605183829278">
       <screen x="-1920" y="-495" width="1920" height="1040" />
     </state>
-    <state x="-1437" y="-353" width="1183" height="811" key="dock-window-1/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605258044619" />
+    <state x="-1437" y="-353" width="1183" height="811" key="dock-window-1/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605183829278" />
     <state x="2030" y="0" width="1117" height="818" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604588473081" />
     <state x="144" y="96" width="1117" height="818" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604651456273" />
-    <state x="-1519" y="-393" width="1183" height="811" key="dock-window-2" timestamp="1605258044619">
+    <state x="-1519" y="-393" width="1183" height="811" key="dock-window-2" timestamp="1605183829278">
       <screen x="-1920" y="-495" width="1920" height="1040" />
     </state>
-    <state x="-1519" y="-393" width="1183" height="811" key="dock-window-2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605258044619" />
+    <state x="-1519" y="-393" width="1183" height="811" key="dock-window-2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605183829278" />
     <state x="332" y="76" width="1456" height="774" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604687472854" />
     <state x="1920" y="0" width="1456" height="846" key="dock-window-3" timestamp="1604685422493">
       <screen x="1920" y="0" width="1440" height="860" />
