@@ -101,31 +101,66 @@ class SortieController extends AbstractController
     }
 
     /**
-     * @Route("/incriptionOK/{id}", name="inscriptionOK",
+     * @Route("/incriptionOk/{id}", name="inscription_ok",
      *     requirements={"id":"\d+"},
      *     methods={"GET"})
+     * @param EntityManagerInterface $em
      * @param $id
      * @return Response
      */
-    public  function inscriptionSortie($id)
+    public  function inscriptionSortie(EntityManagerInterface $em, $id)
     {
-/// non fonctionnel
 
-        $this->denyAccessUnlessGranted("ROLE_USER");
+
+      $this->denyAccessUnlessGranted("ROLE_USER");
 
         $user = $this->getUser();
-        $sorties = $this->getDoctrine()->getRepository(Sortie::class)->findAll();
+        $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
+        $sortie = $sortieRepo->find($user);
+
+         if ($sortie != true) {
+             $sortie = $sortieRepo->find($id);
+             $sortie->addInscrit($user);
+             $em->persist($sortie);
+             $em->flush();
+
+             $this->addFlash('success', 'Vous êtes bien inscrit à l\'évènement !!');
+
+         } else {
+             $this->addFlash('alert', 'Vous êtes déjà inscrit à l\'évènement !!');
+         }
 
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($sorties);
-        $em->flush();
-        $this->addFlash('success', 'Vous êtes bien inscrit à l\'évènement !!');
+            return $this->render("sortie/SortieDetail_Inscrit.html.twig", [
+                "sortie" => $sortie,
 
-        $sortieRepo = $this->getDoctrine()->getRepository(Sortie::Class);
-        $sortie = $sortieRepo->find($id);
+            ]);
+        }
+    /**
+     * @Route("/incriptioncanceled/{id}", name="inscription_canceled",
+     *     requirements={"id":"\d+"},
+     *     methods={"GET"})
+     * @param EntityManagerInterface $em
+     * @param $id
+     * @return Response
+     */
+    public function desinscription(EntityManagerInterface $em, $id) {
 
-        return $this->render("sortie/SortieDetail.html.twig", [
+        $user = $this->getUser();
+        $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
+        $sortie = $sortieRepo->find($user);
+        if ($sortie = true) {
+            $sortie = $sortieRepo->find($id);
+            $sortie->removeInscrit($user);
+            $em->persist($sortie);
+            $em->flush();
+
+            $this->addFlash('success', 'Vous êtes bien désinscrit à l\'évènement !!');
+
+        } else {
+            $this->addFlash('alert', 'Vous n\'êtes pas inscrit à l\'évènement !!');
+        }
+        return $this->render("sortie/SortieDetail_Inscrit.html.twig", [
             "sortie" => $sortie,
 
         ]);

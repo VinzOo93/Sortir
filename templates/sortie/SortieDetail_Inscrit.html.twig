@@ -1,0 +1,30 @@
+{% extends 'sortie/SortieAcceuil.html.twig' %}
+
+{% block header %} {{ parent() }}  {% endblock %}
+
+{% block body %}
+    <body>
+    <div class="container">
+        <div class="row"></div>
+        <h1 style="text-align: center">Sortie</h1>
+
+        <div class="table-wrapper align-self-center col-10 ">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('alert') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+                <a style="display: flex; justify-content: center; font-size: 30px " href="{{ path('sortie') }}">Revenir à l'acceuil</a>
+        </div>
+    </div>
+                </body>
+
+{% endblock %}
+
+{% block footer %} {{ parent() }} {% endblock %}

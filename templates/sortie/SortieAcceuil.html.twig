@@ -17,6 +17,11 @@
         </div>
     {% if sorties %}
     <div class="table-wrapper align-self-center col-10 ">
+        {% for message in app.flashes('alert') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
         <table class="table table-borderless">
             <thead>
             <tr>
@@ -41,10 +46,17 @@
                     <td>-</td>
                     <td>{{ sortie.organisateur.prenom }}</td>
                     <td>
-                        <a href="{{ path('sortie_detail',{'id' : sortie.id}) }}">Afficher</a>
-                        <a href=""{{ path('inscriptionOK', {'id' : sortie.id}) }}>S'inscrire</a>
-                        <a href="#">Modifier</a>
-                        <a href="#">Annulé</a>
+
+                        <a href="{{ path('sortie_detail', {'id' : sortie.id}) }}">Afficher</a>
+                        {% for inscrits in sortie.inscrits %}
+                            {% if inscrits.id == app.user.id %}
+                        <a href="{{ path('inscription_canceled', { 'id' : sortie.id }) }}">Se désister</a>
+                            {% else %}
+                        <a href="{{ path('inscription_ok', {'id' : sortie.id}) }}">S'inscrire</a>
+                                {% endif %}
+                        {% endfor %}
+
+
                     </td>
                 </tr>
             {% endfor %}

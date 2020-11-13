@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\EditUserType;
 use App\Form\RegistrationFormType;
 use App\Security\AppAuthenticator;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -86,24 +87,23 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/update/{id}", name="update",
-     * requirements={"id","\d+"},
+     * @Route("/update", name="update",
      * methods={"GET","POST"})
-     * @param User $user
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param EntityManagerInterface $entityManager
      * @return RedirectResponse|Response
      */
 
-    public function update(User $user, Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function update(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager)
     {
         $this->denyAccessUnlessGranted("ROLE_USER");
-
+        $user = $this->getUser();
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $entityManager = $this->getDoctrine()->getManager();
+
 
             // Si l'ancien mot de passe est bon
 
@@ -120,7 +120,7 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('sortie');
         }
-
+$entityManager->refresh($user);
         return $this->render('profile/updateUser.html.twig',[
            'userForm'=> $form->createView(),
         ]);
