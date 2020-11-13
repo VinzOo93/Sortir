@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\AddSortie;
-
 use App\Entity\Etat;
 use App\Entity\FilterSortie;
 use App\Entity\Sortie;
@@ -99,6 +97,37 @@ class SortieController extends AbstractController
         $sortie = $sortieRepo->find($id);
         return $this->render('sortie/SortieDetail.html.twig', [
             "sortie" => $sortie
+        ]);
+    }
+
+    /**
+     * @Route("/incriptionOK/{id}", name="inscriptionOK",
+     *     requirements={"id":"\d+"},
+     *     methods={"GET"})
+     * @param $id
+     * @return Response
+     */
+    public  function inscriptionSortie($id)
+    {
+/// non fonctionnel
+
+        $this->denyAccessUnlessGranted("ROLE_USER");
+
+        $user = $this->getUser();
+        $sorties = $this->getDoctrine()->getRepository(Sortie::class)->findAll();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($sorties);
+        $em->flush();
+        $this->addFlash('success', 'Vous êtes bien inscrit à l\'évènement !!');
+
+        $sortieRepo = $this->getDoctrine()->getRepository(Sortie::Class);
+        $sortie = $sortieRepo->find($id);
+
+        return $this->render("sortie/SortieDetail.html.twig", [
+            "sortie" => $sortie,
+
         ]);
     }
 

@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="VO:&#10;&#10;modification constructeur en Array collection affichage fonctionne &#10;debug fixture en cours &#10;&#10;mise en page register.html.twig centré correctement">
+    <list default="true" id="6b459d41-34b0-44d4-9304-af4dca168cd5" name="Default Changelist" comment="Vo &#10;&#10;filtre corrigé totalement fonctionnel ! BRAVO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SortieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/AddSortie.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EditUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EditUserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/updateUser.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieType.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieAcceuil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieDetail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieDetail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieLayOut.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sortie/SortieType.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sortie/SortieType.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +39,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -134,6 +150,7 @@
   </component>
   <component name="ProjectId" id="1jjMVflLOJHbnIEqXktFVovofEN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -176,6 +193,7 @@
       <workItem from="1604484424373" duration="3438000" />
       <workItem from="1604568524484" duration="5061000" />
       <workItem from="1605171302711" duration="30802000" />
+      <workItem from="1605258385610" duration="16201000" />
     </task>
     <task id="LOCAL-00001" summary="VO : Creation de base donnée SortieEntreAmis + Controller Sortie .env paramétré sur root sans password">
       <created>1604330755297</created>
@@ -296,11 +314,28 @@
       <option name="project" value="LOCAL" />
       <updated>1605187453789</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Vo &#10;&#10;filtre corrigé totalement fonctionnel ! BRAVO">
+      <created>1605223995746</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1605223995746</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -336,7 +371,8 @@
     <MESSAGE value="AD: affichage profil fonctionnel" />
     <MESSAGE value="AD: formulaire information crée ainsi le controller et le twig ( en cours de finition). Lien mon profile , information et accueil ajouter au layout." />
     <MESSAGE value="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours .." />
-    <option name="LAST_COMMIT_MESSAGE" value="AD: modification showUser et updateUser / lien fonctionnel dans le layout. formulaire modification prenom , nom , tel, email, campus fonctionne mais la modification de mot de passe et en cours .." />
+    <MESSAGE value="Vo &#10;&#10;filtre corrigé totalement fonctionnel ! BRAVO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vo &#10;&#10;filtre corrigé totalement fonctionnel ! BRAVO" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="82" key="#CLI_Interpreters" timestamp="1604482641852">
@@ -372,6 +408,10 @@
     </state>
     <state x="480" y="176" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605115748117" />
     <state x="2370" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604586587728" />
+    <state x="89" y="103" width="1736" height="856" key="DiffContextDialog" timestamp="1605215894960">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="89" y="103" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605215894960" />
     <state x="2518" y="327" key="Github.ShareDialog" timestamp="1604313161984">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
@@ -380,6 +420,10 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2443" y="134" key="Github.UntrackedFilesDialog/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604313316542" />
+    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1605215853395">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605215853395" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1604912616808">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -389,16 +433,17 @@
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1604421311072" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604482755039" />
-    <state x="461" y="147" key="Vcs.Push.Dialog.v2" timestamp="1605105913674">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2247" y="130" key="Vcs.Push.Dialog.v2" timestamp="1605224004327">
+      <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="461" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605105913674" />
-    <state x="416" y="196" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604684575985" />
+    <state x="2247" y="130" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605224004327" />
     <state x="2232" y="162" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604653915696" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605171929543">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="733" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605216651327">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.-495.1920.1040@0.0.1536.824" timestamp="1605171929543" />
+    <state x="733" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605216651327" />
     <state x="2469" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1604576268250" />
     <state x="-1437" y="-353" width="1183" height="811" key="dock-window-1" timestamp="1605183829278">
       <screen x="-1920" y="-495" width="1920" height="1040" />
@@ -419,6 +464,11 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="1920" y="0" width="1456" height="846" key="dock-window-4/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1604685422493" />
+    <state x="2102" y="27" width="1092" height="910" key="dock-window-9" timestamp="1605273195973">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="2102" y="27" width="1092" height="910" key="dock-window-9/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1605273195973" />
+    <state x="1807" y="-26" width="1456" height="1100" maximized="true" key="dock-window-9/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1605271613629" />
     <state x="2296" y="195" key="run.anything.popup" timestamp="1604331742854">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
